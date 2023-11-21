@@ -9,7 +9,9 @@ public class main {
 
         eksempel på hvordan det kunne se ud
         */
-        System.out.println("pizza med hvidløg : " + "nr. 47");
+
+        String Pizza = "Den fra databasen";
+        System.out.println("pizza med hvidløg : " + Pizza);
 
 
     }

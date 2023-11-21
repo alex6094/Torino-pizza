@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 12:39 PM
+-- Generation Time: Nov 21, 2023 at 12:58 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pizzaordrer`
+-- Table structure for table `ordrer`
 --
 
-CREATE TABLE `pizzaordrer` (
-  `OrdreID` int(11) NOT NULL,
-  `PizzaID` int(11) DEFAULT NULL
+CREATE TABLE `ordrer` (
+  `ID` int(11) NOT NULL,
+  `KundeID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pizzaordrer`
+-- Dumping data for table `ordrer`
 --
 
-INSERT INTO `pizzaordrer` (`OrdreID`, `PizzaID`) VALUES
+INSERT INTO `ordrer` (`ID`, `KundeID`) VALUES
 (1001, 1),
 (1002, 2),
 (1003, 3),
@@ -86,17 +86,67 @@ INSERT INTO `pizzaordrer` (`OrdreID`, `PizzaID`) VALUES
 (1047, 47),
 (1048, 48),
 (1049, 49),
-(1050, 50);
+(1050, 50),
+(1051, 51),
+(1052, 52),
+(1053, 53),
+(1054, 54),
+(1055, 55),
+(1056, 56),
+(1057, 57),
+(1058, 58),
+(1059, 59),
+(1060, 60),
+(1061, 61),
+(1062, 62),
+(1063, 63),
+(1064, 64),
+(1065, 65),
+(1066, 66),
+(1067, 67),
+(1068, 68),
+(1069, 69),
+(1070, 70),
+(1071, 71),
+(1072, 72),
+(1073, 73),
+(1074, 74),
+(1075, 75),
+(1076, 76),
+(1077, 77),
+(1078, 78),
+(1079, 79),
+(1080, 80),
+(1081, 81),
+(1082, 82),
+(1083, 83),
+(1084, 84),
+(1085, 85),
+(1086, 86),
+(1087, 87),
+(1088, 88),
+(1089, 89),
+(1090, 90),
+(1091, 91),
+(1092, 92),
+(1093, 93),
+(1094, 94),
+(1095, 95),
+(1096, 96),
+(1097, 97),
+(1098, 98),
+(1099, 99),
+(1100, 100);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `pizzaordrer`
+-- Indexes for table `ordrer`
 --
-ALTER TABLE `pizzaordrer`
-  ADD PRIMARY KEY (`OrdreID`);
+ALTER TABLE `ordrer`
+  ADD PRIMARY KEY (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
