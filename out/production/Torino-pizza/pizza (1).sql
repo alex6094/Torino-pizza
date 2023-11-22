@@ -374,7 +374,7 @@ INSERT INTO Toppings (ToppingID, ToppingName) VALUES
 -- Table structure for table `PizzaToppings`
 --
 
-CREATE TABLE PizzaToppings (
+CREATE TABLE `PizzaToppings` (
     PizzaID INT,
     ToppingID INT,
     PRIMARY KEY (PizzaID, ToppingID),
