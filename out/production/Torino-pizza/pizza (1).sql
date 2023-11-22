@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 12:15 PM
+-- Generation Time: Nov 21, 2023 at 01:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -143,6 +143,289 @@ INSERT INTO `kunde` (`KundeID`, `Navn`, `Email`, `Password`, `Adresse`, `Telefon
 (99, 'Oliver White', 'oliver.white@email.com', 'oliverpass', 'Smedevej 99, 9900 City', '55 66 77 88', '9900'),
 (100, 'Lily Taylor', 'lily.taylor@email.com', 'lilypass', 'Havnegade 100, 10000 Town', '55 88 99 11', '1000');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ordrer`
+--
+
+CREATE TABLE `ordrer` (
+  `ID` int(11) NOT NULL,
+  `KundeID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ordrer`
+--
+
+INSERT INTO `ordrer` (`ID`, `KundeID`) VALUES
+(1001, 1),
+(1002, 2),
+(1003, 3),
+(1004, 4),
+(1005, 5),
+(1006, 6),
+(1007, 7),
+(1008, 8),
+(1009, 9),
+(1010, 10),
+(1011, 11),
+(1012, 12),
+(1013, 13),
+(1014, 14),
+(1015, 15),
+(1016, 16),
+(1017, 17),
+(1018, 18),
+(1019, 19),
+(1020, 20),
+(1021, 21),
+(1022, 22),
+(1023, 23),
+(1024, 24),
+(1025, 25),
+(1026, 26),
+(1027, 27),
+(1028, 28),
+(1029, 29),
+(1030, 30),
+(1031, 31),
+(1032, 32),
+(1033, 33),
+(1034, 34),
+(1035, 35),
+(1036, 36),
+(1037, 37),
+(1038, 38),
+(1039, 39),
+(1040, 40),
+(1041, 41),
+(1042, 42),
+(1043, 43),
+(1044, 44),
+(1045, 45),
+(1046, 46),
+(1047, 47),
+(1048, 48),
+(1049, 49),
+(1050, 50),
+(1051, 51),
+(1052, 52),
+(1053, 53),
+(1054, 54),
+(1055, 55),
+(1056, 56),
+(1057, 57),
+(1058, 58),
+(1059, 59),
+(1060, 60),
+(1061, 61),
+(1062, 62),
+(1063, 63),
+(1064, 64),
+(1065, 65),
+(1066, 66),
+(1067, 67),
+(1068, 68),
+(1069, 69),
+(1070, 70),
+(1071, 71),
+(1072, 72),
+(1073, 73),
+(1074, 74),
+(1075, 75),
+(1076, 76),
+(1077, 77),
+(1078, 78),
+(1079, 79),
+(1080, 80),
+(1081, 81),
+(1082, 82),
+(1083, 83),
+(1084, 84),
+(1085, 85),
+(1086, 86),
+(1087, 87),
+(1088, 88),
+(1089, 89),
+(1090, 90),
+(1091, 91),
+(1092, 92),
+(1093, 93),
+(1094, 94),
+(1095, 95),
+(1096, 96),
+(1097, 97),
+(1098, 98),
+(1099, 99),
+(1100, 100);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pizzamenu`
+--
+
+CREATE TABLE `pizzamenu` (
+  `PizzaID` int(11) NOT NULL,
+  `PizzaNavn` varchar(255) DEFAULT NULL,
+  `Toppings` varchar(255) DEFAULT NULL,
+  `Pris` decimal(5,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pizzamenu`
+--
+
+INSERT INTO `pizzamenu` (`PizzaID`, `PizzaNavn`, `Toppings`, `Pris`) VALUES
+(1, 'Margherita', 'Tomat, mozzarella, basilikum', 75.00),
+(2, 'Pepperoni Passion', 'Pepperoni, ost, tomatsauce', 85.00),
+(3, 'Vegetarisk Deluxe', 'Champignon, løg, peberfrugt, oliven', 80.00),
+(4, 'BBQ Chicken', 'Kylling, barbecuesauce, løg', 90.00),
+(5, 'Fire Cheese', 'Mozzarella, gedeost, parmesan, cheddar', 95.00),
+(6, 'Hawaiian', 'Skinke, ananas, ost', 85.00),
+(7, 'Capricciosa', 'Skinke, champignon, artiskok, oliven', 90.00),
+(8, 'Quattro Stagioni', 'Skinke, artiskok, oliven, champignon', 95.00),
+(9, 'Spinat og Feta', 'Spinat, fetaost, tomatsauce', 80.00),
+(10, 'Seafood Special', 'Rejer, blæksprutte, muslinger', 100.00),
+(11, 'Mexican Madness', 'Oksekød, jalapeños, løg, salsa', 95.00),
+(12, 'Pesto Chicken', 'Kylling, pesto, tomater', 90.00),
+(13, 'Primavera', 'Broccoli, squash, cherrytomater', 85.00),
+(14, 'Prosciutto e Rucola', 'Parmaskinke, rucola, parmesan', 95.00),
+(15, 'Meat Lovers', 'Oksekød, pepperoni, bacon, skinke', 100.00),
+(16, 'Buffalo Chicken', 'Kylling, buffalo sauce, blå ost', 90.00),
+(17, 'Mushroom Madness', 'Champignon, trøffelolie, ost', 85.00),
+(18, 'Mediterranean Delight', 'Fetaost, oliven, soltørrede tomater', 90.00),
+(19, 'Blue Cheese Bliss', 'Blå ost, pærer, valnødder', 95.00),
+(20, 'Sweet and Spicy', 'Ananas, jalapeños, bacon', 85.00),
+(21, 'Provolone Perfection', 'Provolone ost, chorizo, løg', 95.00),
+(22, 'Truffle Tremor', 'Trøffelolie, svampe, parmesan', 100.00),
+(23, 'Shrimp Scampi Supreme', 'Rejer, hvidløgssmør, persille', 95.00),
+(24, 'Caprese Crush', 'Mozzarella, tomater, basilikum, balsamico', 90.00),
+(25, 'Greek Goddess', 'Fetaost, agurker, tomater, oliven', 85.00),
+(26, 'Chicken Alfredo', 'Kylling, alfredosauce, broccoli', 90.00),
+(27, 'Margherita al Pesto', 'Tomat, mozzarella, basilikumpesto', 80.00),
+(28, 'Spicy Sausage Sensation', 'Krydret pølse, peberfrugt, løg', 95.00),
+(29, 'Vegan Veggie Delight', 'Vegansk ost, grøntsager, tomatsovs', 85.00),
+(30, 'Tandoori Temptation', 'Tandoorikylling, løg, koriander', 100.00);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pizzaordrer`
+--
+
+CREATE TABLE `pizzaordrer` (
+  `PizzaID` int(11) DEFAULT NULL,
+  `OrdrerID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pizzaordrer`
+--
+
+INSERT INTO `pizzaordrer` (`PizzaID`, `OrdrerID`) VALUES
+(1, 1001),
+(2, 1002),
+(3, 1003),
+(4, 1004),
+(5, 1005),
+(6, 1006),
+(7, 1007),
+(8, 1008),
+(9, 1009),
+(10, 1010),
+(11, 1011),
+(12, 1012),
+(13, 1013),
+(14, 1014),
+(15, 1015),
+(16, 1016),
+(17, 1017),
+(18, 1018),
+(19, 1019),
+(20, 1020),
+(21, 1021),
+(22, 1022),
+(23, 1023),
+(24, 1024),
+(25, 1025),
+(1, 1026),
+(2, 1027),
+(3, 1028),
+(4, 1029),
+(5, 1030),
+(6, 1031),
+(7, 1032),
+(8, 1033),
+(9, 1034),
+(10, 1035),
+(11, 1036),
+(12, 1037),
+(13, 1038),
+(14, 1039),
+(15, 1040),
+(16, 1041),
+(17, 1042),
+(18, 1043),
+(19, 1044),
+(20, 1045),
+(21, 1046),
+(22, 1047),
+(23, 1048),
+(24, 1049),
+(25, 1050),
+(1, 1051),
+(2, 1052),
+(3, 1053),
+(4, 1054),
+(5, 1055),
+(6, 1056),
+(7, 1057),
+(8, 1058),
+(9, 1059),
+(10, 1060),
+(11, 1061),
+(12, 1062),
+(13, 1063),
+(14, 1064),
+(15, 1065),
+(16, 1066),
+(17, 1067),
+(18, 1068),
+(19, 1069),
+(20, 1070),
+(21, 1071),
+(22, 1072),
+(23, 1073),
+(24, 1074),
+(25, 1075),
+(1, 1076),
+(2, 1077),
+(3, 1078),
+(4, 1079),
+(5, 1080),
+(6, 1081),
+(7, 1082),
+(8, 1083),
+(9, 1084),
+(10, 1085),
+(11, 1086),
+(12, 1087),
+(13, 1088),
+(14, 1089),
+(15, 1090),
+(16, 1091),
+(17, 1092),
+(18, 1093),
+(19, 1094),
+(20, 1095),
+(21, 1096),
+(22, 1097),
+(23, 1098),
+(24, 1099),
+(25, 1100);
+
 --
 -- Indexes for dumped tables
 --
@@ -152,6 +435,18 @@ INSERT INTO `kunde` (`KundeID`, `Navn`, `Email`, `Password`, `Adresse`, `Telefon
 --
 ALTER TABLE `kunde`
   ADD PRIMARY KEY (`KundeID`);
+
+--
+-- Indexes for table `ordrer`
+--
+ALTER TABLE `ordrer`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `pizzamenu`
+--
+ALTER TABLE `pizzamenu`
+  ADD PRIMARY KEY (`PizzaID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
