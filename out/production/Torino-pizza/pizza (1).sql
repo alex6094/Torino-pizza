@@ -375,8 +375,8 @@ INSERT INTO Toppings (ToppingID, ToppingName) VALUES
 --
 
 CREATE TABLE `PizzaToppings` (
-    PizzaID INT,
-    ToppingID INT,
+    `PizzaID` INT,
+    `ToppingID` INT,
     PRIMARY KEY (PizzaID, ToppingID),
     FOREIGN KEY (PizzaID) REFERENCES pizzamenu(PizzaID),
     FOREIGN KEY (ToppingID) REFERENCES toppings(ToppingID)
