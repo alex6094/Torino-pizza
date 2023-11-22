@@ -102,7 +102,7 @@ INSERT INTO `kunde` (`KundeID`, `Fornavn`, `Efternavn`, `Email`, `Password`, `Ad
 (57, 'Noah', 'Smith', 'noah.smith@email.com', 'noahpass', 'Landevej 57, 5700 Village', '55 33 44 55', '5700'),
 (58, 'Emma', 'Brown', 'emma.brown@email.com', 'emmapass', 'Kirkevej 58, 5800 Hamlet', '55 66 77 88', '5800'),
 (59, 'Lucas', 'Taylor', 'lucas.taylor@email.com', 'lucaspass', 'Højvej 59, 5900 City', '55 88 99 11', '5900'),
-(60, 'Ava Lee', 'ava.lee@email.com', 'avapass', 'Grønvej 60, 6000 Town', '55 11 22 33', '6000'),
+(60, 'Ava', 'Lee', 'ava.lee@email.com', 'avapass', 'Grønvej 60, 6000 Town', '55 11 22 33', '6000'),
 (61, 'Olivia', 'Garcia', 'olivia.garcia@email.com', 'oliviapass', 'Fiskervej 61, 6100 Village', '55 33 44 55', '6100'),
 (62, 'Liam', 'Smith', 'liam.smith@email.com', 'liampass', 'Esplanaden 62, 6200 Hamlet', '55 66 77 88', '6200'),
 (63, 'Emma', 'White', 'emma.white@email.com', 'emmapass', 'Dyrehavevej 63, 6300 City', '55 88 99 11', '6300'),
