@@ -338,7 +338,7 @@ INSERT INTO Toppings (ToppingID, ToppingName) VALUES
 (14, 'Parmesan'),
 (15, 'Cheddar'),
 (16, 'Skinke'),
-(17, 'Ananas')
+(17, 'Ananas'),
 (18, 'Artiskok'),
 (19, 'Spinat'),
 (20, 'Fetaost'),
@@ -378,8 +378,8 @@ CREATE TABLE PizzaToppings (
     PizzaID INT,
     ToppingID INT,
     PRIMARY KEY (PizzaID, ToppingID),
-    FOREIGN KEY (PizzaID) REFERENCES Pizzas(PizzaID),
-    FOREIGN KEY (ToppingID) REFERENCES Toppings(ToppingID)
+    FOREIGN KEY (PizzaID) REFERENCES pizzamenu(PizzaID),
+    FOREIGN KEY (ToppingID) REFERENCES toppings(ToppingID)
 );
 
 -- Insert data into PizzaToppings table
