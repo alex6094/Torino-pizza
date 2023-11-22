@@ -270,7 +270,6 @@ INSERT INTO `ordrer` (`ID`, `KundeID`) VALUES
 CREATE TABLE `pizzamenu` (
   `PizzaID` int(11) NOT NULL,
   `PizzaNavn` varchar(255) DEFAULT NULL,
-  `Toppings` varchar(255) DEFAULT NULL,
   `Pris` decimal(5,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -278,39 +277,210 @@ CREATE TABLE `pizzamenu` (
 -- Dumping data for table `pizzamenu`
 --
 
-INSERT INTO `pizzamenu` (`PizzaID`, `PizzaNavn`, `Toppings`, `Pris`) VALUES
-(1, 'Margherita', 'Tomat, mozzarella, basilikum', 75.00),
-(2, 'Pepperoni Passion', 'Pepperoni, ost, tomatsauce', 85.00),
-(3, 'Vegetarisk Deluxe', 'Champignon, løg, peberfrugt, oliven', 80.00),
-(4, 'BBQ Chicken', 'Kylling, barbecuesauce, løg', 90.00),
-(5, 'Fire Cheese', 'Mozzarella, gedeost, parmesan, cheddar', 95.00),
-(6, 'Hawaiian', 'Skinke, ananas, ost', 85.00),
-(7, 'Capricciosa', 'Skinke, champignon, artiskok, oliven', 90.00),
-(8, 'Quattro Stagioni', 'Skinke, artiskok, oliven, champignon', 95.00),
-(9, 'Spinat og Feta', 'Spinat, fetaost, tomatsauce', 80.00),
-(10, 'Seafood Special', 'Rejer, blæksprutte, muslinger', 100.00),
-(11, 'Mexican Madness', 'Oksekød, jalapeños, løg, salsa', 95.00),
-(12, 'Pesto Chicken', 'Kylling, pesto, tomater', 90.00),
-(13, 'Primavera', 'Broccoli, squash, cherrytomater', 85.00),
-(14, 'Prosciutto e Rucola', 'Parmaskinke, rucola, parmesan', 95.00),
-(15, 'Meat Lovers', 'Oksekød, pepperoni, bacon, skinke', 100.00),
-(16, 'Buffalo Chicken', 'Kylling, buffalo sauce, blå ost', 90.00),
-(17, 'Mushroom Madness', 'Champignon, trøffelolie, ost', 85.00),
-(18, 'Mediterranean Delight', 'Fetaost, oliven, soltørrede tomater', 90.00),
-(19, 'Blue Cheese Bliss', 'Blå ost, pærer, valnødder', 95.00),
-(20, 'Sweet and Spicy', 'Ananas, jalapeños, bacon', 85.00),
-(21, 'Provolone Perfection', 'Provolone ost, chorizo, løg', 95.00),
-(22, 'Truffle Tremor', 'Trøffelolie, svampe, parmesan', 100.00),
-(23, 'Shrimp Scampi Supreme', 'Rejer, hvidløgssmør, persille', 95.00),
-(24, 'Caprese Crush', 'Mozzarella, tomater, basilikum, balsamico', 90.00),
-(25, 'Greek Goddess', 'Fetaost, agurker, tomater, oliven', 85.00),
-(26, 'Chicken Alfredo', 'Kylling, alfredosauce, broccoli', 90.00),
-(27, 'Margherita al Pesto', 'Tomat, mozzarella, basilikumpesto', 80.00),
-(28, 'Spicy Sausage Sensation', 'Krydret pølse, peberfrugt, løg', 95.00),
-(29, 'Vegan Veggie Delight', 'Vegansk ost, grøntsager, tomatsovs', 85.00),
-(30, 'Tandoori Temptation', 'Tandoorikylling, løg, koriander', 100.00);
+INSERT INTO `pizzamenu` (`PizzaID`, `PizzaNavn`, `Pris`) VALUES
+(1, 'Margherita', 75.00),
+(2, 'Pepperoni Passion', 85.00),
+(3, 'Vegetarisk Deluxe', 80.00),
+(4, 'BBQ Chicken', 90.00),
+(5, 'Fire Cheese', 95.00),
+(6, 'Hawaiian', 85.00),
+(7, 'Capricciosa', 90.00),
+(8, 'Quattro Stagioni', 95.00),
+(9, 'Spinat og Feta', 80.00),
+(10, 'Seafood Special', 100.00),
+(11, 'Mexican Madness', 95.00),
+(12, 'Pesto Chicken', 90.00),
+(13, 'Primavera', 85.00),
+(14, 'Prosciutto e Rucola', 95.00),
+(15, 'Meat Lovers', 100.00),
+(16, 'Buffalo Chicken', 90.00),
+(17, 'Mushroom Madness', 85.00),
+(18, 'Mediterranean Delight', 90.00),
+(19, 'Blue Cheese Bliss', 95.00),
+(20, 'Sweet and Spicy', 85.00),
+(21, 'Provolone Perfection', 95.00),
+(22, 'Truffle Tremor', 100.00),
+(23, 'Shrimp Scampi Supreme', 95.00),
+(24, 'Caprese Crush', 90.00),
+(25, 'Greek Goddess', 85.00),
+(26, 'Chicken Alfredo', 90.00),
+(27, 'Margherita al Pesto', 80.00),
+(28, 'Spicy Sausage Sensation', 95.00),
+(29, 'Vegan Veggie Delight', 85.00),
+(30, 'Tandoori Temptation', 100.00);
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `toppings`
+--
+
+CREATE TABLE `toppings` (
+  `ToppingID` int(11) NOT NULL,
+  `ToppingName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insert data into Toppings table
+INSERT INTO Toppings (ToppingID, ToppingName) VALUES
+(1, 'Tomat'),
+(2, 'Mozzarella'),
+(3, 'Basilikum'),
+(4, 'Pepperoni'),
+(5, 'Ost'),
+(6, 'Tomatsauce'),
+(7, 'Champignon'),
+(8, 'Løg'),
+(9, 'Peberfrugt'),
+(10, 'Oliven'),
+(11, 'Kylling'),
+(12, 'Barbecuesauce'),
+(13, 'Gedeost'),
+(14, 'Parmesan'),
+(15, 'Cheddar'),
+(16, 'Skinke'),
+(17, 'Ananas')
+(18, 'Artiskok'),
+(19, 'Spinat'),
+(20, 'Fetaost'),
+(21, 'Rejer'),
+(22, 'Blæksprutte'),
+(23, 'Muslinger'),
+(24, 'Oksekød'),
+(25, 'Jalapeños'),
+(26, 'Salsa'),
+(27, 'Pesto'),
+(28, 'Broccoli'),
+(29, 'Squash'),
+(30, 'Cherrytomater'),
+(31, 'Parmaskinke'),
+(32, 'Trøffelolie'),
+(33, 'Soltørrede tomater'),
+(34, 'Blå ost'),
+(35, 'Pærer'),
+(36, 'Valnødder'),
+(37, 'Provolone ost'),
+(38, 'Hvidløgssmør'),
+(39, 'Persille'),
+(40, 'Balsamico'),
+(41, 'Agurker'),
+(42, 'Alfredosauce'),
+(43, 'Basilikumpesto'),
+(44, 'Krydret pølse'),
+(45, 'Vegansk ost'),
+(46, 'Grøntsager'),
+(47, 'Koriander');
+
+--
+-- Table structure for table `PizzaToppings`
+--
+
+CREATE TABLE PizzaToppings (
+    PizzaID INT,
+    ToppingID INT,
+    PRIMARY KEY (PizzaID, ToppingID),
+    FOREIGN KEY (PizzaID) REFERENCES Pizzas(PizzaID),
+    FOREIGN KEY (ToppingID) REFERENCES Toppings(ToppingID)
+);
+
+-- Insert data into PizzaToppings table
+INSERT INTO PizzaToppings (PizzaID, ToppingID) VALUES
+(1, 1), -- Margherita with Tomat
+(1, 2), -- Margherita with Mozzarella
+(1, 3), -- Margherita with Basilikum
+(2, 4), -- Pepperoni Passion with Pepperoni
+(2, 5), -- Pepperoni Passion with Ost
+(2, 6), -- Pepperoni Passion with Tomatsauce
+(3, 7), -- Vegetarisk Deluxe with Champignon
+(3, 8), -- Vegetarisk Deluxe with Løg
+(3, 9), -- Vegetarisk Deluxe with Peberfrugt
+(3, 10), -- Vegetarisk Deluxe with Oliven
+(4, 11), -- BBQ Chicken with Kylling
+(4, 12), -- BBQ Chicken with Barbequesauce
+(4, 8), -- BBQ Chicken with Løg
+(5, 2), -- Fire Cheese with Mozzarella
+(5, 13), -- Fire Cheese with Gedeost
+(5, 14), -- Fire Cheese with Parmesan
+(5, 15), -- Fire Cheese with Cheddar
+(6, 16), -- Hawaiian with Skinke
+(6, 17), -- Hawaiian with Ananas
+(6, 5), -- Hawaiian with Ost
+(7, 16), -- Capricciosa with Skinke
+(7, 7), -- Capricciosa with Champignon
+(7, 18), -- Capricciosa with Artiskok
+(7, 10), -- Capricciosa with Oliven
+(8, 16), -- Quattro Stagioni with Skinke
+(8, 18), -- Quattro Stagioni with Artiskok
+(8, 10), -- Quattro Stagioni with Oliven
+(8, 7), -- Quattro Stagioni with Champignon
+(9, 19), -- Spinat og Feta with Spinat
+(9, 20), -- Spinat og Feta with Fetaost
+(9, 6), -- Spinat og Feta with Tomatsauce
+(10, 21), -- Seafood Special with Rejer
+(10, 22), -- Seafood Special with Blæksprutte
+(10, 23), -- Seafood Special with Muslinger
+(11, 24), -- Mexican Madness with Oksekød
+(11, 25), -- Mexican Madness with Jalapeños
+(11, 8), -- Mexican Madness with Løg
+(11, 26), -- Mexican Madness with Salsa
+(12, 11), -- Pesto Chicken with Kylling
+(12, 27), -- Pesto Chicken with Pesto
+(12, 1), -- Pesto Chicken with Tomat
+(13, 28), -- Primavera with Krydret pølse
+(13, 29), -- Primavera with Vegansk ost
+(13, 30), -- Primavera with Grøntsager
+(14, 31), -- Prosciutto e Rucola with Parmaskinke
+(14, 32), -- Prosciutto e Rucola with Trøffelolie
+(14, 33), -- Prosciutto e Rucola with Soltørrede tomater
+(15, 24), -- Meat Lovers with Oksekød
+(15, 4),  -- Meat Lovers with Pepperoni
+(15, 5),  -- Meat Lovers with Bacon
+(15, 16), -- Meat Lovers with Skinke
+(16, 11), -- Buffalo Chicken with Kylling
+(16, 34), -- Buffalo Chicken with Blå ost
+(17, 7),  -- Mushroom Madness with Champignon
+(17, 32), -- Mushroom Madness with Trøffelolie
+(17, 5),  -- Mushroom Madness with Ost
+(18, 20), -- Mediterranean Delight with Fetaost
+(18, 10), -- Mediterranean Delight with Oliven
+(18, 33), -- Mediterranean Delight with Soltørrede tomater
+(19, 34), -- Blue Cheese Bliss with Blå ost
+(19, 35), -- Blue Cheese Bliss with Pærer
+(19, 36), -- Blue Cheese Bliss with Valnødder
+(20, 17), -- Sweet and Spicy with Ananas
+(20, 25), -- Sweet and Spicy with Jalapeños
+(20, 5),  -- Sweet and Spicy with Bacon
+(21, 37), -- Provolone Perfection with Provolone ost
+(21, 43), -- Provolone Perfection with Krydret pølse
+(21, 8),  -- Provolone Perfection with Løg
+(22, 32), -- Truffle Tremor with Trøffelolie
+(22, 7),  -- Truffle Tremor with Champignon
+(22, 14), -- Truffle Tremor with Parmesan
+(23, 21), -- Shrimp Scampi Supreme with Rejer
+(23, 38), -- Shrimp Scampi Supreme with Hvidløgssmør
+(23, 39), -- Shrimp Scampi Supreme with Persille
+(24, 2),  -- Caprese Crush with Mozzarella
+(24, 1),  -- Caprese Crush with Tomater
+(24, 3),  -- Caprese Crush with Basilikum
+(24, 40), -- Caprese Crush with Balsamico
+(25, 20), -- Greek Goddess with Fetaost
+(25, 41), -- Greek Goddess with Agurker
+(25, 30), -- Greek Goddess with Cherrytomater
+(25, 10), -- Greek Goddess with Oliven
+(26, 11), -- Chicken Alfredo with Kylling
+(26, 42), -- Chicken Alfredo with Alfredosauce
+(26, 27), -- Chicken Alfredo with Broccoli
+(27, 1),  -- Margherita al Pesto with Tomat
+(27, 2),  -- Margherita al Pesto with Mozzarella
+(27, 43), -- Margherita al Pesto with Basilikumpesto
+(28, 43), -- Spicy Sausage Sensation with Krydret pølse
+(28, 9),  -- Spicy Sausage Sensation with Peberfrugt
+(28, 8),  -- Spicy Sausage Sensation with Løg
+(29, 44), -- Vegan Veggie Delight with Vegansk ost
+(29, 46), -- Vegan Veggie Delight with Grøntsager
+(29, 6),  -- Vegan Veggie Delight with Tomatsovs
+(30, 45), -- Tandoori Temptation with Koriander
+(30, 11), -- Tandoori Temptation with Kylling
+(30, 8);  -- Tandoori Temptation with Løg
 
 --
 -- Table structure for table `pizzaordrer`
