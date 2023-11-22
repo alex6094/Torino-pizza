@@ -22,7 +22,7 @@ public class Mark {
 
             Statement statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM `pizzamenu` WHERE Toppings like '%hvidløg%'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM `pizzamenu` WHERE Toppings like '%Tomat%'");
 
             while (resultSet.next()) {
 
@@ -33,8 +33,6 @@ public class Mark {
             System.out.println(e);
         }
 
-
-        
 
     }
 
