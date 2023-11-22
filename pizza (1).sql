@@ -321,7 +321,7 @@ CREATE TABLE `toppings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Insert data into Toppings table
-INSERT INTO Toppings (ToppingID, ToppingName) VALUES
+INSERT INTO `toppings` (`ToppingID`, `ToppingName`) VALUES
 (1, 'Tomat'),
 (2, 'Mozzarella'),
 (3, 'Basilikum'),
@@ -377,13 +377,13 @@ INSERT INTO Toppings (ToppingID, ToppingName) VALUES
 CREATE TABLE `PizzaToppings` (
     `PizzaID` INT,
     `ToppingID` INT,
-    PRIMARY KEY (PizzaID, ToppingID),
-    FOREIGN KEY (PizzaID) REFERENCES `pizzamenu`(PizzaID),
-    FOREIGN KEY (ToppingID) REFERENCES `toppings`(ToppingID)
+    PRIMARY KEY (`PizzaID`, `ToppingID`),
+    FOREIGN KEY (`PizzaID`) REFERENCES `pizzamenu`(`PizzaID`),
+    FOREIGN KEY (`ToppingID`) REFERENCES `toppings`(`ToppingID`)
 );
 
 -- Insert data into PizzaToppings table
-INSERT INTO PizzaToppings (PizzaID, ToppingID) VALUES
+INSERT INTO `PizzaToppings` (`PizzaID`, `ToppingID`) VALUES
 (1, 1), -- Margherita with Tomat
 (1, 2), -- Margherita with Mozzarella
 (1, 3), -- Margherita with Basilikum
