@@ -26,7 +26,10 @@ public class Mark {
 
             while (resultSet.next()) {
 
-                System.out.println("Pizza nummer: " + resultSet.getInt(+1) + ". Navnet på pizza: " + resultSet.getString("PizzaNavn") + ". Hvad der er på: " + resultSet.getString("Toppings") + ". Og hvad den koster: " + resultSet.getInt("Pris"));
+                System.out.println("Pizza nummer: " + resultSet.getInt(+1)
+                        + ". Navnet på pizza: " + resultSet.getString("PizzaNavn")
+                        + ". Hvad der er på: " + resultSet.getString("Toppings")
+                        + ". Og hvad den koster: " + resultSet.getInt("Pris"));
             }
             connection.close();
         } catch (Exception e) {
