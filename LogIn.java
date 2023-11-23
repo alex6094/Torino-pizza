@@ -5,8 +5,9 @@ import java.sql.Statement;
 
 public class LogIn {
 
-    private static String Email = "mark-nielsen@email.com";
-    private static String Password = "";
+    private static String Email = "oliver.garcia@email.com";
+    private static String Password = "oliverpass";
+    public static boolean loggedIn = false;
 
 
 public static void main(String args[]) {
@@ -27,20 +28,21 @@ public static void main(String args[]) {
 
             while(resultSet.next()){
                 String dbEmail = resultSet.getString("Email");
+                String dbPassword = resultSet.getString("Password");
 
                 if(dbEmail.equals(Email)){
-                    System.out.println("Email correct");
+                    if(dbPassword.equals(Password)){
+                    loggedIn = true;
+                    System.out.println("logged in!");
+                    break;
+                    }
                 }
-
+                else{
+                    System.out.println("not correct");
+                }
 
             }
 
-
-
-
-
-            //dbEmail = resultSet.getString("Email");
-            //dbPassword = resultSet.getString("Password");
 
         } catch (Exception e) {
             System.out.println(e);
@@ -48,11 +50,7 @@ public static void main(String args[]) {
     }
 
 
-    public void CheckValues(){
-
-        
-        
-    }
+    
 
 
 }
