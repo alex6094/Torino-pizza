@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f9cfc5f-a05c-4860-bfb0-4c7feeea6423" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Torino-pizza/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/Mark.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Torino-pizza/Mark.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,6 +73,11 @@
       <option name="presentableId" value="Default" />
       <updated>1700672278936</updated>
       <workItem from="1700672280068" duration="107000" />
+      <workItem from="1700734012786" duration="401000" />
+      <workItem from="1700734458930" duration="25000" />
+      <workItem from="1700734494808" duration="14000" />
+      <workItem from="1700734516214" duration="65000" />
+      <workItem from="1700734609287" duration="642000" />
     </task>
     <servers />
   </component>
