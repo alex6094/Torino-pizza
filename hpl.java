@@ -34,9 +34,9 @@ public class Hpl {
             PreparedStatement pstatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             pstatement.executeUpdate();
-            ResultSet rs = pstatement.getGeneratedKeys();
-            rs.next();
-            int OrdrerID = rs.getInt(1);
+            ResultSet resultSet = pstatement.getGeneratedKeys();
+            resultSet.next();
+            int OrdrerID = resultSet.getInt(1);
 
             //forbinder ordre med pizzaIDer
             for (int[] p : pizza) {
@@ -46,7 +46,7 @@ public class Hpl {
 
 
             //viser ordren
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM ordrer_view WHERE ID="+OrdrerID);
+            resultSet = statement.executeQuery("SELECT * FROM ordrer_view WHERE ID="+OrdrerID);
             int totalprice = 0;
 
             while (resultSet.next()) {
