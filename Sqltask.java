@@ -51,10 +51,13 @@ public class Sqltask {
 
 
       public static void showKunder(ResultSet result, String header) throws SQLException {
-            String outputformat = "%-8s%-20s%-30s%-50s%15s%10s%15s\033[1m%15s\033[0m%n";
             System.out.println("\n\n************************ "+header+" ************************\n");
-            System.out.printf(outputformat,"ID", "Oprettet", "Pizza", "Beskrivelse", "Pris stk.", "Antal", "Pris", "Pris Total");
+            System.out.printf(
+                "%-8s%-20s%-30s%-50s%15s%10s%15s\033[1m%15s\033[0m%n",
+            "ID", "Oprettet", "Pizza", "Beskrivelse", "Pris stk.", "Antal", "Pris", "Pris Total"
+            );
             int id = 0;
+
             //udskriver tabeldata
             while (result.next()) {
                 
