@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 24. 11 2023 kl. 13:33:33
+-- Genereringstid: 24. 11 2023 kl. 10:46:50
 -- Serverversion: 10.4.28-MariaDB
 -- PHP-version: 8.2.4
 
@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `kunde` (
   `KundeID` int(11) NOT NULL,
-  `Fornavn` varchar(50) DEFAULT NULL,
-  `Efternavn` varchar(50) DEFAULT NULL,
+  `Fornavn` varchar(255) DEFAULT NULL,
+  `Efternavn` varchar(255) DEFAULT NULL,
   `Foedselsdag` date DEFAULT NULL,
-  `Telefon` char(8) DEFAULT NULL,
-  `Email` varchar(100) DEFAULT NULL,
-  `Adresse` varchar(100) DEFAULT NULL,
-  `Postnummer` char(4) DEFAULT NULL,
+  `Telefon` varchar(20) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `Adresse` varchar(255) DEFAULT NULL,
+  `Postnummer` varchar(4) DEFAULT NULL,
   `Password` varchar(255) DEFAULT NULL,
   `Oprettet` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -45,106 +45,106 @@ CREATE TABLE `kunde` (
 --
 
 INSERT INTO `kunde` (`KundeID`, `Fornavn`, `Efternavn`, `Foedselsdag`, `Telefon`, `Email`, `Adresse`, `Postnummer`, `Password`, `Oprettet`) VALUES
-(1, 'John', 'Doe', '1943-11-20', '12345678', 'john.doe@email.com', 'Hovedgade 1', '1000', 'password123', '2023-01-15 14:23:45'),
-(2, 'Jane', 'Smith', '1965-06-12', '98765432', 'jane.smith@email.com', 'Bakkevej 2', '2000', 'securepass', '2023-03-02 08:45:30'),
-(3, 'Bob', 'Johnson', '1980-03-05', '55789012', 'bob.johnson@email.com', 'Ågade 3', '3000', 'pass123', '2023-05-20 17:12:20'),
-(4, 'Alice', 'Miller', '1978-09-02', '55321654', 'alice.miller@email.com', 'Ellevej 4', '4000', 'mypass', '2023-07-08 23:59:59'),
-(5, 'Michael', 'Brown', '1956-12-10', '55447777', 'michael.brown@email.com', 'Egevej 5', '5000', 'brownpass', '2023-09-14 06:34:15'),
-(6, 'Emily', 'White', '2001-08-15', '55113333', 'emily.white@email.com', 'Fyrrestien 6', '6000', 'emilypass', '2023-02-28 19:28:10'),
-(7, 'Daniel', 'Lee', '1990-04-18', '55669999', 'daniel.lee@email.com', 'Granvej 7', '7000', 'danpass', '2023-04-10 10:15:00'),
-(8, 'Olivia', 'Taylor', '1972-07-30', '55224488', 'olivia.taylor@email.com', 'Hasselvej 8', '8000', 'oliviapass', '2023-06-22 02:45:30'),
-(9, 'David', 'Garcia', '1952-05-08', '55997755', 'david.garcia@email.com', 'Irisvej 9', '9000', 'davidpass', '2023-08-01 14:56:48'),
-(10, 'Sophia', 'Martin', '1988-11-03', '55338822', 'sophia.martin@email.com', 'Jupitervej 10', '1000', 'sophiapass', '2023-11-03 21:05:12'),
-(11, 'Liam', 'Wilson', '2010-02-14', '55776611', 'liam.wilson@email.com', 'Kirsebærvej 11', '1100', 'liampass', '2023-02-14 18:30:00'),
-(12, 'Emma', 'Davis', '1976-01-25', '55443366', 'emma.davis@email.com', 'Lønvej 12', '1200', 'emmapass', '2023-01-25 11:11:11'),
-(13, 'Noah', 'Taylor', '1983-07-19', '55776644', 'noah.taylor@email.com', 'Magnolievej 13', '1300', 'noahpass', '2023-07-19 05:02:45'),
-(14, 'Olivia', 'Harris', '1968-10-27', '55332211', 'olivia.harris@email.com', 'Nøddevej 14', '1400', 'oliviapass', '2023-05-27 13:40:20'),
-(15, 'Lucas', 'Brown', '1949-06-01', '55661122', 'lucas.brown@email.com', 'Orkidévej 15', '1500', 'lucaspass', '2023-09-01 22:10:05'),
-(16, 'Ava', 'Johnson', '2005-04-03', '55114455', 'ava.johnson@email.com', 'Pærevej 16', '1600', 'avapass', '2023-04-03 03:20:30'),
-(17, 'Mia', 'Martinez', '1975-12-05', '55337788', 'mia.martinez@email.com', 'Quintana Roo 17', '1700', 'miapass', '2023-12-05 16:48:55'),
-(18, 'Liam', 'Davis', '1995-09-15', '55226633', 'liam.davis@email.com', 'Rosenvej 18', '1800', 'liampass', '2023-09-15 09:00:00'),
-(19, 'Emma', 'Garcia', '1960-08-23', '55887766', 'emma.garcia@email.com', 'Solvang 19', '1900', 'emmapass', '2023-08-23 15:55:30'),
-(20, 'Noah', 'Wilson', '2002-07-08', '55338811', 'noah.wilson@email.com', 'Trævej 20', '2000', 'noahpass', '2023-07-08 00:45:12'),
-(21, 'Ava', 'Smith', '1985-02-17', '55771122', 'ava.smith@email.com', 'Uglevej 21', '2100', 'avapass', '2023-02-17 20:25:40'),
-(22, 'Mia', 'White', '1998-11-29', '55113344', 'mia.white@email.com', 'Vandtårnsvej 22', '2200', 'miapass', '2023-11-29 11:34:18'),
-(23, 'Lucas', 'Taylor', '1958-03-14', '55442288', 'lucas.taylor@email.com', 'Villa Rosa 23', '2300', 'lucaspass', '2023-03-14 19:45:00'),
-(24, 'Olivia', 'Harris', '2019-05-28', '55887733', 'sophie.walker@email.com', 'Vintervej 24', '2400', 'oliviapass', '2023-05-28 07:15:30'),
-(25, 'Emma', 'Brown', '1982-04-09', '55338844', 'jack.harris@email.com', 'Vesterbro 25', '2500', 'emmapass', '2023-04-09 15:28:04'),
-(26, 'Sophie', 'Walker', '1993-09-02', '55778899', 'lily.wilson@email.com', 'Skovvej 26', '2600', 'sophiepass', '2023-09-02 18:52:20'),
-(27, 'Jack', 'Harris', '1977-07-11', '55112233', 'charlie.davis@email.com', 'Søvej 27', '2700', 'jackpass', '2023-07-11 23:05:55'),
-(28, 'Lily', 'Wilson', '2000-01-08', '55445566', 'mia.taylor@email.com', 'Strandvej 28', '2800', 'lilypass', '2023-01-08 04:40:30'),
-(29, 'Charlie', 'Davis', '1967-04-23', '55667788', 'noah.smith@email.com', 'Skolevej 29', '2900', 'charliepass', '2023-04-23 07:11:11'),
-(30, 'Mia', 'Taylor', '1987-12-20', '55998877', 'olivia.brown@email.com', 'Mosevej 30', '3000', 'miapass', '2023-12-20 22:02:45'),
-(31, 'Noah', 'Smith', '1954-08-31', '55221133', 'liam.garcia@email.com', 'Markvej 31', '3100', 'noahpass', '2023-08-31 14:30:20'),
-(32, 'Olivia', 'Brown', '1991-06-26', '55334455', 'emma.martin@email.com', 'Landevej 32', '3200', 'oliviapass', '2023-06-26 12:10:00'),
-(33, 'Liam', 'Garcia', '2007-10-14', '55667788', 'lucas.lee@email.com', 'Kirkevej 33', '3300', 'liampass', '2023-10-14 06:44:30'),
-(34, 'Emma', 'Martin', '1950-02-07', '55889911', 'ava.wilson@email.com', 'Højvej 34', '3400', 'emmapass', '2023-02-07 15:56:48'),
-(35, 'Lucas', 'Lee', '1989-07-03', '55112233', 'mia.harris@email.com', 'Grønvej 35', '3500', 'lucaspass', '2023-07-03 20:05:12'),
-(36, 'Ava', 'Wilson', '1947-09-29', '55334455', 'liam.white@email.com', 'Fiskervej 36', '3600', 'avapass', '2023-09-29 01:40:00'),
-(37, 'Mia', 'Harris', '1997-01-11', '55667788', 'emma.johnson@email.com', 'Esplanaden 37', '3700', 'miapass', '2023-01-11 17:25:30'),
-(38, 'Liam', 'White', '1963-04-16', '55889911', 'noah.davis@email.com', 'Dyrehavevej 38', '4000', 'liampass', '2023-04-16 10:48:55'),
-(39, 'Olivia', 'Taylor', '1979-05-06', '55112233', 'sophia.smith@email.com', 'Cirkelvej 39', '4000', 'oliviapass', '2023-05-06 16:30:18'),
-(40, 'Emma', 'Johnson', '2008-12-02', '55334455', 'oliver.garcia@email.com', 'Bredgade 40', '4000', 'emmapass', '2023-12-02 08:00:00'),
-(41, 'Noah', 'Davis', '1969-03-18', '55667788', 'sophie.miller@email.com', 'Aaboulevard 41', '4100', 'noahpass', '2023-03-18 00:55:30'),
-(42, 'Sophia', 'Smith', '2014-07-22', '55889911', 'ethan.wilson@email.com', 'Vesterbrogade 42', '4200', 'sophiapass', '2023-07-22 23:28:04'),
-(43, 'Oliver', 'Garcia', '1971-10-03', '55112233', 'ava.martin@email.com', 'Østerbrogade 43', '4300', 'oliverpass', '2023-10-03 13:52:20'),
-(44, 'Ava', 'Wilson', '1955-11-26', '55334455', 'logan.davis@email.com', 'Nørrebrogade 44', '4400', 'avapass', '2023-11-26 05:05:55'),
-(45, 'Mia', 'Lee', '2003-03-27', '55667788', 'isabella.smith@email.com', 'Søndergade 45', '4500', 'miapass', '2023-03-27 08:40:30'),
-(46, 'Liam', 'Harris', '1986-06-09', '55889911', 'jackson.harris@email.com', 'Algade 46', '4600', 'liampass', '2023-06-09 19:11:11'),
-(47, 'Emma', 'White', '1966-09-07', '55112233', 'mia.brown@email.com', 'Hovedgaden 47', '4700', 'emmapass', '2023-09-07 22:02:45'),
-(48, 'Noah', 'Taylor', '2017-08-10', '55334455', 'aiden.johnson@email.com', 'Strandgade 48', '4800', 'noahpass', '2023-08-10 02:30:20'),
-(49, 'Olivia', 'Martin', '1953-01-15', '55667788', 'emily.garcia@email.com', 'Langelinie 49', '4900', 'oliviapass', '2023-01-15 14:10:00'),
-(50, 'Sophia', 'Brown', '1996-04-05', '55778899', 'liam.miller@email.com', 'Vejlevej 50', '5000', 'sophiapass', '2023-04-05 06:44:30'),
-(51, 'Jack', 'Wilson', '1974-02-20', '55778899', 'harper.taylor@email.com', 'Skovvej 51', '5100', 'jackpass', '2023-02-20 15:56:48'),
-(52, 'Sophia', 'Davis', '2012-09-30', '55112233', 'lucas.smith@email.com', 'Søvej 52', '5200', 'sophiapass', '2023-09-30 11:25:12'),
-(53, 'Oliver', 'White', '1984-12-14', '55445566', 'amelia.wilson@email.com', 'Strandvej 53', '5300', 'oliverpass', '2023-12-14 04:05:00'),
-(54, 'Lily', 'Taylor', '1957-05-12', '55667788', 'owen.davis@email.com', 'Skolevej 54', '5400', 'lilypass', '2023-05-12 17:25:30'),
-(55, 'Charlie', 'Garcia', '1994-02-08', '55998877', 'abigail.martin@email.com', 'Mosevej 55', '5500', 'charliepass', '2023-02-08 10:48:55'),
-(56, 'Mia', 'Martin', '1970-08-04', '55221133', 'benjamin.johnson@email.com', 'Markvej 56', '5600', 'miapass', '2023-06-04 00:30:18'),
-(57, 'Noah', 'Smith', '2006-06-15', '55334455', 'ella.garcia@email.com', 'Landevej 57', '5700', 'noahpass', '2023-11-09 19:00:00'),
-(58, 'Emma', 'Brown', '1981-11-09', '55667788', 'noah.miller@email.com', 'Kirkevej 58', '5800', 'emmapass', '2023-03-21 23:55:30'),
-(59, 'Lucas', 'Taylor', '1961-03-21', '55889911', 'grace.harris@email.com', 'Højvej 59', '5900', 'lucaspass', '2023-06-15 13:28:04'),
-(60, 'Ava', 'Lee', '2015-04-18', '55112233', 'jacob.taylor@email.com', 'Grønvej 60', '6000', 'avapass', '2023-04-18 05:52:20'),
-(61, 'Olivia', 'Garcia', '2004-09-12', '55334455', 'ava.brown@email.com', 'Fiskervej 61', '6100', 'oliviapass', '2023-09-12 07:10:30'),
-(62, 'Liam', 'Smith', '1973-12-08', '55667788', 'ethan.martin@email.com', 'Esplanaden 62', '6200', 'liampass', '2023-12-08 14:34:18'),
-(63, 'Emma', 'White', '1951-04-23', '55889911', 'olivia.johnson@email.com', 'Dyrehavevej 63', '6300', 'emmapass', '2023-04-23 21:00:00'),
-(64, 'Noah', 'Taylor', '2018-01-07', '55112233', 'emma.smith@email.com', 'Cirkelvej 64', '6400', 'noahpass', '2023-01-07 08:56:48'),
-(65, 'Sophie', 'Martin', '1983-03-25', '55334455', 'aiden.wilson@email.com', 'Bredgade 65', '6500', 'sophiepass', '2023-03-25 02:20:15'),
-(66, 'Jack', 'Davis', '1964-08-01', '55667788', 'mia.davis@email.com', 'Aaboulevard 66', '6600', 'jackpass', '2023-08-01 18:15:30'),
-(67, 'Lily', 'Smith', '1978-01-29', '55889911', 'lucas.miller@email.com', 'Vesterbrogade 67', '6700', 'lilypass', '2023-01-29 11:48:55'),
-(68, 'Charlie', 'Garcia', '2011-05-06', '55112233', 'isabella.harris@email.com', 'Østerbrogade 68', '6800', 'charliepass', '2023-05-06 01:30:18'),
-(69, 'Mia', 'Taylor', '1992-10-19', '55334455', 'logan.smith@email.com', 'Nørrebrogade 69', '6900', 'miapass', '2023-10-19 15:44:00'),
-(70, 'Noah', 'Davis', '1962-07-17', '55667788', 'sophie.johnson@email.com', 'Strandgade 70', '7000', 'noahpass', '2023-07-17 06:08:30'),
-(71, 'Sophia', 'Smith', '1999-08-26', '55889911', 'jackson.taylor@email.com', 'Søndergade 71', '7100', 'sophiapass', '2023-08-26 16:22:04'),
-(72, 'Oliver', 'Garcia', '1971-12-21', '55112233', 'emily.brown@email.com', 'Algade 72', '7200', 'oliverpass', '2023-12-21 10:05:55'),
-(73, 'Ava', 'Wilson', '1980-05-14', '55334455', 'owen.garcia@email.com', 'Hovedgaden 73', '7300', 'avapass', '2023-05-14 03:40:30'),
-(74, 'Liam', 'Harris', '1969-03-18', '55667788', 'abigail.wilson@email.com', 'Strandvejen 74', '7400', 'liampass', '2023-03-18 20:11:11'),
-(75, 'Emma', 'White', '1975-09-13', '55889911', 'benjamin.davis@email.com', 'Havnegade 75', '7500', 'emmapass', '2023-09-13 23:02:45'),
-(76, 'Olivia', 'Taylor', '1987-01-01', '55778899', 'ella.martin@email.com', 'Banevej 76', '7600', 'oliviapass', '2023-01-01 04:30:20'),
-(77, 'Liam', 'Smith', '2013-11-09', '55112233', 'noah.johnson@email.com', 'Stationsvej 77', '7700', 'liampass', '2023-11-09 12:10:00'),
-(78, 'Emma', 'Garcia', '1956-02-02', '55445566', 'grace.garcia@email.com', 'Gadekærvej 78', '7800', 'emmapass', '2023-02-02 07:44:30'),
-(79, 'Noah', 'Wilson', '2009-04-28', '55667788', 'jacob.smith@email.com', 'Ådalen 79', '7900', 'noahpass', '2023-04-28 14:56:48'),
-(80, 'Sophie', 'Davis', '1944-07-30', '55998877', 'ava.miller@email.com', 'Højmarken 80', '8000', 'sophiepass', '2023-07-30 11:25:12'),
-(81, 'Jack', 'Wilson', '1993-08-22', '55221133', 'ethan.garcia@email.com', 'Gartnervænget 81', '8100', 'jackpass', '2023-08-22 05:05:00'),
-(82, 'Lily', 'Taylor', '1972-11-02', '55334455', 'olivia.davis@email.com', 'Nørregade 82', '8200', 'lilypass', '2023-11-02 17:25:30'),
-(83, 'Charlie', 'Garcia', '1988-09-04', '55667788', 'liam.taylor@email.com', 'Solsortevej 83', '8300', 'charliepass', '2023-09-04 10:48:55'),
-(84, 'Mia', 'Martin', '1960-04-11', '55889911', 'aiden.miller@email.com', 'Engvej 84', '8400', 'miapass', '2023-04-11 00:30:18'),
-(85, 'Noah', 'Smith', '2016-02-07', '55112233', 'mia.wilson@email.com', 'Brombærvej 85', '8500', 'noahpass', '2023-02-07 19:00:00'),
-(86, 'Sophia', 'Davis', '1959-05-19', '55334455', 'lucas.johnson@email.com', 'Nyvej 86', '8600', 'sophiapass', '2023-05-19 23:55:30'),
-(87, 'Oliver', 'White', '2010-10-14', '55667788', 'isabella.garcia@email.com', 'Skovvejen 87', '8700', 'oliverpass', '2023-10-14 13:28:04'),
-(88, 'Lily', 'Taylor', '1967-01-03', '55889911', 'logan.wilson@email.com', 'Guldsmedevej 88', '8800', 'lilypass', '2023-01-03 05:52:20'),
-(89, 'Charlie', 'Garcia', '1995-06-26', '55112233', 'sophia.wilson@email.com', 'Toftevej 89', '8900', 'charliepass', '2023-06-26 07:10:30'),
-(90, 'Mia', 'Martin', '1976-11-28', '55334455', 'jack.miller@email.com', 'Elmevej 90', '9000', 'miapass', '2023-11-28 14:34:18'),
-(91, 'Noah', 'Smith', '1954-03-13', '55667788', 'lily.garcia@email.com', 'Rugvænget 91', '9100', 'noahpass', '2023-03-13 21:00:00'),
-(92, 'Sophia', 'Davis', '2001-09-30', '55889911', 'charlie.brown@email.com', 'Højsletten 92', '9200', 'sophiapass', '2023-09-30 08:56:48'),
-(93, 'Oliver', 'White', '1982-07-04', '55112233', 'mia.johnson@email.com', 'Kildevej 93', '9300', 'oliverpass', '2023-07-04 02:20:15'),
-(94, 'Lily', 'Taylor', '1968-12-15', '55334455', 'noah.garcia@email.com', 'Åbrinken 94', '9400', 'lilypass', '2023-12-15 18:15:30'),
-(95, 'Charlie', 'Garcia', '1979-04-26', '55667788', 'olivia.smith@email.com', 'Skovkanten 95', '9500', 'charliepass', '2023-04-26 11:48:55'),
-(96, 'Mia', 'Martin', '2015-08-03', '55889911', 'liam.martin@email.com', 'Bækvej 96', '9600', 'miapass', '2023-08-03 01:30:18'),
-(97, 'Noah', 'Smith', '1996-11-08', '55112233', 'emma.taylor@email.com', 'Birkelunden 97', '9700', 'noahpass', '2023-11-08 15:44:00'),
-(98, 'Sophia', 'Davis', '1963-06-20', '55334455', 'ava.davis@email.com', 'Skolevænget 98', '9800', 'sophiapass', '2023-06-20 06:08:30'),
-(99, 'Oliver', 'White', '2012-04-17', '55667788', 'sophie.wilson@email.com', 'Smedevej 99', '9900', 'oliverpass', '2023-04-17 16:22:04'),
-(100, 'Lily', 'Taylor', '1952-09-09', '55889911', 'ethan.miller@email.com', 'Havnegade 100', '1000', 'lilypass', '2023-09-09 10:05:55');
+(1, 'John', 'Doe', '1943-11-20', '12 34 56 78', 'john.doe@email.com', 'Hovedgade 1', '1000', 'password123', '2023-01-15 14:23:45'),
+(2, 'Jane', 'Smith', '1965-06-12', '98 76 54 32', 'jane.smith@email.com', 'Bakkevej 2', '2000', 'securepass', '2023-03-02 08:45:30'),
+(3, 'Bob', 'Johnson', '1980-03-05', '55 78 90 12', 'bob.johnson@email.com', 'Ågade 3', '3000', 'pass123', '2023-05-20 17:12:20'),
+(4, 'Alice', 'Miller', '1978-09-02', '55 32 16 54', 'alice.miller@email.com', 'Ellevej 4', '4000', 'mypass', '2023-07-08 23:59:59'),
+(5, 'Michael', 'Brown', '1956-12-10', '55 44 77 77', 'michael.brown@email.com', 'Egevej 5', '5000', 'brownpass', '2023-09-14 06:34:15'),
+(6, 'Emily', 'White', '2001-08-15', '55 11 33 33', 'emily.white@email.com', 'Fyrrestien 6', '6000', 'emilypass', '2023-02-28 19:28:10'),
+(7, 'Daniel', 'Lee', '1990-04-18', '55 66 99 99', 'daniel.lee@email.com', 'Granvej 7', '7000', 'danpass', '2023-04-10 10:15:00'),
+(8, 'Olivia', 'Taylor', '1972-07-30', '55 22 44 88', 'olivia.taylor@email.com', 'Hasselvej 8', '8000', 'oliviapass', '2023-06-22 02:45:30'),
+(9, 'David', 'Garcia', '1952-05-08', '55 99 77 55', 'david.garcia@email.com', 'Irisvej 9', '9000', 'davidpass', '2023-08-01 14:56:48'),
+(10, 'Sophia', 'Martin', '1988-11-03', '55 33 88 22', 'sophia.martin@email.com', 'Jupitervej 10', '1000', 'sophiapass', '2023-11-03 21:05:12'),
+(11, 'Liam', 'Wilson', '2010-02-14', '55 77 66 11', 'liam.wilson@email.com', 'Kirsebærvej 11', '1100', 'liampass', '2023-02-14 18:30:00'),
+(12, 'Emma', 'Davis', '1976-01-25', '55 44 33 66', 'emma.davis@email.com', 'Lønvej 12', '1200', 'emmapass', '2023-01-25 11:11:11'),
+(13, 'Noah', 'Taylor', '1983-07-19', '55 77 66 44', 'noah.taylor@email.com', 'Magnolievej 13', '1300', 'noahpass', '2023-07-19 05:02:45'),
+(14, 'Olivia', 'Harris', '1968-10-27', '55 33 22 11', 'olivia.harris@email.com', 'Nøddevej 14', '1400', 'oliviapass', '2023-05-27 13:40:20'),
+(15, 'Lucas', 'Brown', '1949-06-01', '55 66 11 22', 'lucas.brown@email.com', 'Orkidévej 15', '1500', 'lucaspass', '2023-09-01 22:10:05'),
+(16, 'Ava', 'Johnson', '2005-04-03', '55 11 44 55', 'ava.johnson@email.com', 'Pærevej 16', '1600', 'avapass', '2023-04-03 03:20:30'),
+(17, 'Mia', 'Martinez', '1975-12-05', '55 33 77 88', 'mia.martinez@email.com', 'Quintana Roo 17', '1700', 'miapass', '2023-12-05 16:48:55'),
+(18, 'Liam', 'Davis', '1995-09-15', '55 22 66 33', 'liam.davis@email.com', 'Rosenvej 18', '1800', 'liampass', '2023-09-15 09:00:00'),
+(19, 'Emma', 'Garcia', '1960-08-23', '55 88 77 66', 'emma.garcia@email.com', 'Solvang 19', '1900', 'emmapass', '2023-08-23 15:55:30'),
+(20, 'Noah', 'Wilson', '2002-07-08', '55 33 88 11', 'noah.wilson@email.com', 'Trævej 20', '2000', 'noahpass', '2023-07-08 00:45:12'),
+(21, 'Ava', 'Smith', '1985-02-17', '55 77 11 22', 'ava.smith@email.com', 'Uglevej 21', '2100', 'avapass', '2023-02-17 20:25:40'),
+(22, 'Mia', 'White', '1998-11-29', '55 11 33 44', 'mia.white@email.com', 'Vandtårnsvej 22', '2200', 'miapass', '2023-11-29 11:34:18'),
+(23, 'Lucas', 'Taylor', '1958-03-14', '55 44 22 88', 'lucas.taylor@email.com', 'Villa Rosa 23', '2300', 'lucaspass', '2023-03-14 19:45:00'),
+(24, 'Olivia', 'Harris', '2019-05-28', '55 88 77 33', 'olivia.harris@email.com', 'Vintervej 24', '2400', 'oliviapass', '2023-05-28 07:15:30'),
+(25, 'Emma', 'Brown', '1982-04-09', '55 33 88 44', 'emma.brown@email.com', 'Vesterbro 25', '2500', 'emmapass', '2023-04-09 15:28:04'),
+(26, 'Sophie', 'Walker', '1993-09-02', '55 77 88 99', 'sophie.walker@email.com', 'Skovvej 26', '2600', 'sophiepass', '2023-09-02 18:52:20'),
+(27, 'Jack', 'Harris', '1977-07-11', '55 11 22 33', 'jack.harris@email.com', 'Søvej 27', '2700', 'jackpass', '2023-07-11 23:05:55'),
+(28, 'Lily', 'Wilson', '2000-01-08', '55 44 55 66', 'lily.wilson@email.com', 'Strandvej 28', '2800', 'lilypass', '2023-01-08 04:40:30'),
+(29, 'Charlie', 'Davis', '1967-04-23', '55 66 77 88', 'charlie.davis@email.com', 'Skolevej 29', '2900', 'charliepass', '2023-04-23 07:11:11'),
+(30, 'Mia', 'Taylor', '1987-12-20', '55 99 88 77', 'mia.taylor@email.com', 'Mosevej 30', '3000', 'miapass', '2023-12-20 22:02:45'),
+(31, 'Noah', 'Smith', '1954-08-31', '55 22 11 33', 'noah.smith@email.com', 'Markvej 31', '3100', 'noahpass', '2023-08-31 14:30:20'),
+(32, 'Olivia', 'Brown', '1991-06-26', '55 33 44 55', 'olivia.brown@email.com', 'Landevej 32', '3200', 'oliviapass', '2023-06-26 12:10:00'),
+(33, 'Liam', 'Garcia', '2007-10-14', '55 66 77 88', 'liam.garcia@email.com', 'Kirkevej 33', '3300', 'liampass', '2023-10-14 06:44:30'),
+(34, 'Emma', 'Martin', '1950-02-07', '55 88 99 11', 'emma.martin@email.com', 'Højvej 34', '3400', 'emmapass', '2023-02-07 15:56:48'),
+(35, 'Lucas', 'Lee', '1989-07-03', '55 11 22 33', 'lucas.lee@email.com', 'Grønvej 35', '3500', 'lucaspass', '2023-07-03 20:05:12'),
+(36, 'Ava', 'Wilson', '1947-09-29', '55 33 44 55', 'ava.wilson@email.com', 'Fiskervej 36', '3600', 'avapass', '2023-09-29 01:40:00'),
+(37, 'Mia', 'Harris', '1997-01-11', '55 66 77 88', 'mia.harris@email.com', 'Esplanaden 37', '3700', 'miapass', '2023-01-11 17:25:30'),
+(38, 'Liam', 'White', '1963-04-16', '55 88 99 11', 'liam.white@email.com', 'Dyrehavevej 38', '4000', 'liampass', '2023-04-16 10:48:55'),
+(39, 'Olivia', 'Taylor', '1979-05-06', '55 11 22 33', 'olivia.taylor@email.com', 'Cirkelvej 39', '4000', 'oliviapass', '2023-05-06 16:30:18'),
+(40, 'Emma', 'Johnson', '2008-12-02', '55 33 44 55', 'emma.johnson@email.com', 'Bredgade 40', '4000', 'emmapass', '2023-12-02 08:00:00'),
+(41, 'Noah', 'Davis', '1969-03-18', '55 66 77 88', 'noah.davis@email.com', 'Aaboulevard 41', '4100', 'noahpass', '2023-03-18 00:55:30'),
+(42, 'Sophia', 'Smith', '2014-07-22', '55 88 99 11', 'sophia.smith@email.com', 'Vesterbrogade 42', '4200', 'sophiapass', '2023-07-22 23:28:04'),
+(43, 'Oliver', 'Garcia', '1971-10-03', '55 11 22 33', 'oliver.garcia@email.com', 'Østerbrogade 43', '4300', 'oliverpass', '2023-10-03 13:52:20'),
+(44, 'Ava', 'Wilson', '1955-11-26', '55 33 44 55', 'ava.wilson@email.com', 'Nørrebrogade 44', '4400', 'avapass', '2023-11-26 05:05:55'),
+(45, 'Mia', 'Lee', '2003-03-27', '55 66 77 88', 'mia.lee@email.com', 'Søndergade 45', '4500', 'miapass', '2023-03-27 08:40:30'),
+(46, 'Liam', 'Harris', '1986-06-09', '55 88 99 11', 'liam.harris@email.com', 'Algade 46', '4600', 'liampass', '2023-06-09 19:11:11'),
+(47, 'Emma', 'White', '1966-09-07', '55 11 22 33', 'emma.white@email.com', 'Hovedgaden 47', '4700', 'emmapass', '2023-09-07 22:02:45'),
+(48, 'Noah', 'Taylor', '2017-08-10', '55 33 44 55', 'noah.taylor@email.com', 'Strandgade 48', '4800', 'noahpass', '2023-08-10 02:30:20'),
+(49, 'Olivia', 'Martin', '1953-01-15', '55 66 77 88', 'olivia.martin@email.com', 'Langelinie 49', '4900', 'oliviapass', '2023-01-15 14:10:00'),
+(50, 'Sophia', 'Brown', '1996-04-05', '55 77 88 99', 'sophia.brown@email.com', 'Vejlevej 50', '5000', 'sophiapass', '2023-04-05 06:44:30'),
+(51, 'Jack', 'Wilson', '1974-02-20', '55 77 88 99', 'jack.wilson@email.com', 'Skovvej 51', '5100', 'jackpass', '2023-02-20 15:56:48'),
+(52, 'Sophia', 'Davis', '2012-09-30', '55 11 22 33', 'sophia.davis@email.com', 'Søvej 52', '5200', 'sophiapass', '2023-09-30 11:25:12'),
+(53, 'Oliver', 'White', '1984-12-14', '55 44 55 66', 'oliver.white@email.com', 'Strandvej 53', '5300', 'oliverpass', '2023-12-14 04:05:00'),
+(54, 'Lily', 'Taylor', '1957-05-12', '55 66 77 88', 'lily.taylor@email.com', 'Skolevej 54', '5400', 'lilypass', '2023-05-12 17:25:30'),
+(55, 'Charlie', 'Garcia', '1994-02-08', '55 99 88 77', 'charlie.garcia@email.com', 'Mosevej 55', '5500', 'charliepass', '2023-02-08 10:48:55'),
+(56, 'Mia', 'Martin', '1970-08-04', '55 22 11 33', 'mia.martin@email.com', 'Markvej 56', '5600', 'miapass', '2023-06-04 00:30:18'),
+(57, 'Noah', 'Smith', '2006-06-15', '55 33 44 55', 'noah.smith@email.com', 'Landevej 57', '5700', 'noahpass', '2023-11-09 19:00:00'),
+(58, 'Emma', 'Brown', '1981-11-09', '55 66 77 88', 'emma.brown@email.com', 'Kirkevej 58', '5800', 'emmapass', '2023-03-21 23:55:30'),
+(59, 'Lucas', 'Taylor', '1961-03-21', '55 88 99 11', 'lucas.taylor@email.com', 'Højvej 59', '5900', 'lucaspass', '2023-06-15 13:28:04'),
+(60, 'Ava', 'Lee', '2015-04-18', '55 11 22 33', 'ava.lee@email.com', 'Grønvej 60', '6000', 'avapass', '2023-04-18 05:52:20'),
+(61, 'Olivia', 'Garcia', '2004-09-12', '55 33 44 55', 'olivia.garcia@email.com', 'Fiskervej 61', '6100', 'oliviapass', '2023-09-12 07:10:30'),
+(62, 'Liam', 'Smith', '1973-12-08', '55 66 77 88', 'liam.smith@email.com', 'Esplanaden 62', '6200', 'liampass', '2023-12-08 14:34:18'),
+(63, 'Emma', 'White', '1951-04-23', '55 88 99 11', 'emma.white@email.com', 'Dyrehavevej 63', '6300', 'emmapass', '2023-04-23 21:00:00'),
+(64, 'Noah', 'Taylor', '2018-01-07', '55 11 22 33', 'noah.taylor@email.com', 'Cirkelvej 64', '6400', 'noahpass', '2023-01-07 08:56:48'),
+(65, 'Sophie', 'Martin', '1983-03-25', '55 33 44 55', 'sophie.martin@email.com', 'Bredgade 65', '6500', 'sophiepass', '2023-03-25 02:20:15'),
+(66, 'Jack', 'Davis', '1964-08-01', '55 66 77 88', 'jack.davis@email.com', 'Aaboulevard 66', '6600', 'jackpass', '2023-08-01 18:15:30'),
+(67, 'Lily', 'Smith', '1978-01-29', '55 88 99 11', 'lily.smith@email.com', 'Vesterbrogade 67', '6700', 'lilypass', '2023-01-29 11:48:55'),
+(68, 'Charlie', 'Garcia', '2011-05-06', '55 11 22 33', 'charlie.garcia@email.com', 'Østerbrogade 68', '6800', 'charliepass', '2023-05-06 01:30:18'),
+(69, 'Mia', 'Taylor', '1992-10-19', '55 33 44 55', 'mia.taylor@email.com', 'Nørrebrogade 69', '6900', 'miapass', '2023-10-19 15:44:00'),
+(70, 'Noah', 'Davis', '1962-07-17', '55 66 77 88', 'noah.davis@email.com', 'Strandgade 70', '7000', 'noahpass', '2023-07-17 06:08:30'),
+(71, 'Sophia', 'Smith', '1999-08-26', '55 88 99 11', 'sophia.smith@email.com', 'Søndergade 71', '7100', 'sophiapass', '2023-08-26 16:22:04'),
+(72, 'Oliver', 'Garcia', '1971-12-21', '55 11 22 33', 'oliver.garcia@email.com', 'Algade 72', '7200', 'oliverpass', '2023-12-21 10:05:55'),
+(73, 'Ava', 'Wilson', '1980-05-14', '55 33 44 55', 'ava.wilson@email.com', 'Hovedgaden 73', '7300', 'avapass', '2023-05-14 03:40:30'),
+(74, 'Liam', 'Harris', '1969-03-18', '55 66 77 88', 'liam.harris@email.com', 'Strandvejen 74', '7400', 'liampass', '2023-03-18 20:11:11'),
+(75, 'Emma', 'White', '1975-09-13', '55 88 99 11', 'emma.white@email.com', 'Havnegade 75', '7500', 'emmapass', '2023-09-13 23:02:45'),
+(76, 'Olivia', 'Taylor', '1987-01-01', '55 77 88 99', 'olivia.taylor@email.com', 'Banevej 76', '7600', 'oliviapass', '2023-01-01 04:30:20'),
+(77, 'Liam', 'Smith', '2013-11-09', '55 11 22 33', 'liam.smith@email.com', 'Stationsvej 77', '7700', 'liampass', '2023-11-09 12:10:00'),
+(78, 'Emma', 'Garcia', '1956-02-02', '55 44 55 66', 'emma.garcia@email.com', 'Gadekærvej 78', '7800', 'emmapass', '2023-02-02 07:44:30'),
+(79, 'Noah', 'Wilson', '2009-04-28', '55 66 77 88', 'noah.wilson@email.com', 'Ådalen 79', '7900', 'noahpass', '2023-04-28 14:56:48'),
+(80, 'Sophie', 'Davis', '1944-07-30', '55 99 88 77', 'sophie.davis@email.com', 'Højmarken 80', '8000', 'sophiepass', '2023-07-30 11:25:12'),
+(81, 'Jack', 'Wilson', '1993-08-22', '55 22 11 33', 'jack.wilson@email.com', 'Gartnervænget 81', '8100', 'jackpass', '2023-08-22 05:05:00'),
+(82, 'Lily', 'Taylor', '1972-11-02', '55 33 44 55', 'lily.taylor@email.com', 'Nørregade 82', '8200', 'lilypass', '2023-11-02 17:25:30'),
+(83, 'Charlie', 'Garcia', '1988-09-04', '55 66 77 88', 'charlie.garcia@email.com', 'Solsortevej 83', '8300', 'charliepass', '2023-09-04 10:48:55'),
+(84, 'Mia', 'Martin', '1960-04-11', '55 88 99 11', 'mia.martin@email.com', 'Engvej 84', '8400', 'miapass', '2023-04-11 00:30:18'),
+(85, 'Noah', 'Smith', '2016-02-07', '55 11 22 33', 'noah.smith@email.com', 'Brombærvej 85', '8500', 'noahpass', '2023-02-07 19:00:00'),
+(86, 'Sophia', 'Davis', '1959-05-19', '55 33 44 55', 'sophia.davis@email.com', 'Nyvej 86', '8600', 'sophiapass', '2023-05-19 23:55:30'),
+(87, 'Oliver', 'White', '2010-10-14', '55 66 77 88', 'oliver.white@email.com', 'Skovvejen 87', '8700', 'oliverpass', '2023-10-14 13:28:04'),
+(88, 'Lily', 'Taylor', '1967-01-03', '55 88 99 11', 'lily.taylor@email.com', 'Guldsmedevej 88', '8800', 'lilypass', '2023-01-03 05:52:20'),
+(89, 'Charlie', 'Garcia', '1995-06-26', '55 11 22 33', 'charlie.garcia@email.com', 'Toftevej 89', '8900', 'charliepass', '2023-06-26 07:10:30'),
+(90, 'Mia', 'Martin', '1976-11-28', '55 33 44 55', 'mia.martin@email.com', 'Elmevej 90', '9000', 'miapass', '2023-11-28 14:34:18'),
+(91, 'Noah', 'Smith', '1954-03-13', '55 66 77 88', 'noah.smith@email.com', 'Rugvænget 91', '9100', 'noahpass', '2023-03-13 21:00:00'),
+(92, 'Sophia', 'Davis', '2001-09-30', '55 88 99 11', 'sophia.davis@email.com', 'Højsletten 92', '9200', 'sophiapass', '2023-09-30 08:56:48'),
+(93, 'Oliver', 'White', '1982-07-04', '55 11 22 33', 'oliver.white@email.com', 'Kildevej 93', '9300', 'oliverpass', '2023-07-04 02:20:15'),
+(94, 'Lily', 'Taylor', '1968-12-15', '55 33 44 55', 'lily.taylor@email.com', 'Åbrinken 94', '9400', 'lilypass', '2023-12-15 18:15:30'),
+(95, 'Charlie', 'Garcia', '1979-04-26', '55 66 77 88', 'charlie.garcia@email.com', 'Skovkanten 95', '9500', 'charliepass', '2023-04-26 11:48:55'),
+(96, 'Mia', 'Martin', '2015-08-03', '55 88 99 11', 'mia.martin@email.com', 'Bækvej 96', '9600', 'miapass', '2023-08-03 01:30:18'),
+(97, 'Noah', 'Smith', '1996-11-08', '55 11 22 33', 'noah.smith@email.com', 'Birkelunden 97', '9700', 'noahpass', '2023-11-08 15:44:00'),
+(98, 'Sophia', 'Davis', '1963-06-20', '55 33 44 55', 'sophia.davis@email.com', 'Skolevænget 98', '9800', 'sophiapass', '2023-06-20 06:08:30'),
+(99, 'Oliver', 'White', '2012-04-17', '55 66 77 88', 'oliver.white@email.com', 'Smedevej 99', '9900', 'oliverpass', '2023-04-17 16:22:04'),
+(100, 'Lily', 'Taylor', '1952-09-09', '55 88 99 11', 'lily.taylor@email.com', 'Havnegade 100', '1000', 'lilypass', '2023-09-09 10:05:55');
 
 -- --------------------------------------------------------
 
@@ -154,11 +154,11 @@ INSERT INTO `kunde` (`KundeID`, `Fornavn`, `Efternavn`, `Foedselsdag`, `Telefon`
 --
 CREATE TABLE `kunde_view` (
 `KundeID` int(11)
-,`Fornavn` varchar(50)
-,`Efternavn` varchar(50)
-,`Telefon` char(8)
-,`Adresse` varchar(100)
-,`Postnr` char(4)
+,`Fornavn` varchar(255)
+,`Efternavn` varchar(255)
+,`Telefon` varchar(20)
+,`Adresse` varchar(255)
+,`Postnr` varchar(4)
 ,`Bynavn` varchar(50)
 );
 
@@ -308,18 +308,18 @@ CREATE TABLE `ordrer_view` (
 ,`Betalt` tinyint(1)
 ,`Faerdig` tinyint(1)
 ,`PizzaID` int(11)
-,`PizzaNavn` varchar(50)
+,`PizzaNavn` varchar(255)
 ,`Toppings` mediumtext
 ,`StkPris` decimal(5,2)
 ,`Antal` int(11)
 ,`Pris` decimal(15,2)
 ,`TotalPris` decimal(5,2)
 ,`KundeID` int(11)
-,`Fornavn` varchar(50)
-,`Efternavn` varchar(50)
-,`Telefon` char(8)
-,`Adresse` varchar(100)
-,`Postnr` char(4)
+,`Fornavn` varchar(255)
+,`Efternavn` varchar(255)
+,`Telefon` varchar(20)
+,`Adresse` varchar(255)
+,`Postnr` varchar(4)
 ,`Bynavn` varchar(50)
 );
 
@@ -331,7 +331,7 @@ CREATE TABLE `ordrer_view` (
 
 CREATE TABLE `pizzamenu` (
   `PizzaID` int(11) NOT NULL,
-  `PizzaNavn` varchar(50) DEFAULT NULL,
+  `PizzaNavn` varchar(255) DEFAULT NULL,
   `StkPris` decimal(5,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -379,7 +379,7 @@ INSERT INTO `pizzamenu` (`PizzaID`, `PizzaNavn`, `StkPris`) VALUES
 --
 CREATE TABLE `pizzamenu_view` (
 `PizzaID` int(11)
-,`PizzaNavn` varchar(50)
+,`PizzaNavn` varchar(255)
 ,`Toppings` mediumtext
 ,`StkPris` decimal(5,2)
 );
@@ -738,7 +738,7 @@ INSERT INTO `pizzatoppings` (`PizzaID`, `ToppingID`) VALUES
 --
 
 CREATE TABLE `postnrby` (
-  `Postnr` char(4) NOT NULL,
+  `Postnr` varchar(4) NOT NULL,
   `Bynavn` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -1953,7 +1953,7 @@ INSERT INTO `postnrby` (`Postnr`, `Bynavn`) VALUES
 
 CREATE TABLE `toppings` (
   `ToppingID` int(11) NOT NULL,
-  `ToppingName` varchar(50) DEFAULT NULL
+  `ToppingName` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -2054,7 +2054,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `kunde`
   ADD PRIMARY KEY (`KundeID`),
-  ADD UNIQUE KEY `Email` (`Email`),
   ADD KEY `Postnummer` (`Postnummer`);
 
 --
@@ -2104,13 +2103,13 @@ ALTER TABLE `toppings`
 -- Tilføj AUTO_INCREMENT i tabel `kunde`
 --
 ALTER TABLE `kunde`
-  MODIFY `KundeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `KundeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `ordrer`
 --
 ALTER TABLE `ordrer`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1123;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1122;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `pizzamenu`
