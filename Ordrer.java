@@ -33,14 +33,12 @@ public class Ordrer {
                 statement.executeUpdate(sql);
             };
 
-
-            //viser ordren
-            show(OrdrerID);
-
-
             //opdater ordren med totalpris
             double totalprice = calc(OrdrerID);
             statement.executeUpdate("UPDATE ordrer SET TotalPris = "+totalprice+ " WHERE ID = "+OrdrerID);     
+
+            //viser ordren
+            show(OrdrerID);
 
             
             System.out.println("Totalpris:"+ totalprice);
