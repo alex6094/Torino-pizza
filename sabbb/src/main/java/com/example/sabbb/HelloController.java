@@ -6,31 +6,35 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HelloController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    private void goToHomePage(ActionEvent event) throws IOException {
-        // Load the home page FXML
-        Parent homePage = FXMLLoader.load(getClass().getResource("homePage.fxml"));
-        // Get the current stage using the event source
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        // Create a new scene with the home page
-        Scene scene = new Scene(homePage);
-        // Set the scene to the stage
-        stage.setScene(scene);
-        // Show the stage
-        stage.show();
+    private void handleLogin(ActionEvent event) {
+        //changeScene("your-order.fxml", event);
     }
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private void handleSignUp(ActionEvent event) {
+        //changeScene("your-order.fxml", event);
+    }
+
+    private void changeScene(String fxmlFile, ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(fxmlFile));
+            Parent parent = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(new Scene(parent));
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
