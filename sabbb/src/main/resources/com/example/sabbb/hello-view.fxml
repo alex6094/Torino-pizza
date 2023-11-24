@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sabbb.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Button maxWidth="Infinity" text="Home" HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets top="50.0" />
+                </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="BOTTOM" maxWidth="Infinity" text="Order Online" HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets top="50.0" />
+                </HBox.margin>
+            </Button>
+            <Button maxWidth="Infinity" text="Info" HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets top="50.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+
+        <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                <Label text="Login/Sign up" />
+                <HBox spacing="5.0">
+                    <Label text="Email:" />
+                    <TextField fx:id="emailField" promptText="Enter your email" />
+               <VBox.margin>
+                  <Insets left="190.0" />
+               </VBox.margin>
+                </HBox>
+                <HBox spacing="5.0">
+                        <Label text="Password:" />
+                        <PasswordField fx:id="passwordField" promptText="Enter your password" />
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="170.0" />
+               </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" spacing="10.0">
+                        <Button fx:id="loginButton" text="Login" />
+                        <Button fx:id="signUpButton" text="Sign Up" />
+                </HBox>
+        </VBox>
+    </AnchorPane>
+</VBox>
