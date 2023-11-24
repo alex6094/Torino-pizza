@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class Ordrer {
     Statement statement;
 
-    public void create(int[][] pizza, LocalDateTime ctime) {
+    public void create(int[][] pizza, LocalDateTime ctime, int levering, int kundeID) {
         try {
             Connection connection = connectDB();       
             statement = connection.createStatement();
@@ -18,7 +18,7 @@ public class Ordrer {
             //opretter ordre: indsætter kundeID etc.
             String sql = 
                     "INSERT INTO ordrer(KundeID, Oprettet, Leveres) "+
-                    "VALUES (78, '"+ctime+"', 0)";
+                    "VALUES ("+kundeID+", '"+ctime+"', "+levering+")";
 
             PreparedStatement pstatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -35,12 +35,11 @@ public class Ordrer {
 
 
             //viser ordren
-            double totalprice = show(OrdrerID);
+            show(OrdrerID);
 
-
- 
 
             //opdater ordren med totalpris
+            double totalprice = calc(OrdrerID);
             statement.executeUpdate("UPDATE ordrer SET TotalPris = "+totalprice+ " WHERE ID = "+OrdrerID);     
 
             
@@ -66,13 +65,22 @@ public class Ordrer {
 
     }
 
-    private double show(int ordrerID) throws SQLException {
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM ordrer_view WHERE ID="+ordrerID);
+    private double calc(double ordrerID) throws SQLException {
+            ResultSet resultSet = statement.executeQuery("SELECT Pris FROM ordrer_view WHERE ID="+ordrerID);
             double totalprice = 0;
 
             while (resultSet.next()) {
-                double pris = resultSet.getDouble("Pris");
-                totalprice += pris;
+                totalprice += resultSet.getDouble(1);  
+            }
+
+            return totalprice;
+
+    }
+
+    private void show(int ordrerID) throws SQLException {
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM ordrer_view WHERE ID="+ordrerID);
+
+            while (resultSet.next()) {
 
                 System.out.println(
                     "OrdreID: " + resultSet.getInt("ID") +", "+
@@ -80,12 +88,10 @@ public class Ordrer {
                     "Toppings: " + resultSet.getString("Toppings") +", "+
                     "Pris pr stk.: " + resultSet.getDouble("StkPris") +", "+
                     "Antal: " + resultSet.getInt("Antal") +", "+
-                    "Pris i alt: " + pris
+                    "Pris i alt: " + resultSet.getDouble("Pris")
                     );
                 
             }
-
-            return totalprice;
 
     }
 

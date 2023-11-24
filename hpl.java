@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public class hpl {
+public class Hpl {
 
 
     public static void main(String args[]) {
@@ -17,7 +17,7 @@ public class hpl {
             LocalDateTime ctime = LocalDateTime.now();
 
             Ordrer myOrdrer = new Ordrer();
-            myOrdrer.create(pizza,ctime);
+            myOrdrer.create(pizza, ctime, 0, 78);
     }
 }
 
