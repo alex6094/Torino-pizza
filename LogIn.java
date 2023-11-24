@@ -5,8 +5,8 @@ import java.sql.Statement;
 
 public class LogIn {
 
-    private static String Email = "mark-nielsen@email.com";
-    private static String Password = "";
+    private static String Email = "john.doe@email.com";
+    private static String Password = "password123";
 
 
 public static void main(String args[]) {
@@ -18,27 +18,23 @@ public static void main(String args[]) {
 
     public static void GetDataBaseValues() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            //Opretter forbindelse til databasen
+
             Connection connection = DriverManager.getConnection(URL, "root", "");
 
             Statement statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("SELECT Email,Password FROM `kunde`");
+            String SQLStatement = "SELECT Email,Password FROM `kunde` WHERE Email ='" + Email + "' And Password ='" + Password + "'";
 
-            while(resultSet.next()){
-                String dbEmail = resultSet.getString("Email");
+            ResultSet resultSet = statement.executeQuery(SQLStatement);
 
-                if(dbEmail.equals(Email)){
-                    System.out.println("Email correct");
+
+                if(resultSet.next()){
+                    System.out.println("Succesfully Logged in!");
                 }
-
-
-            }
-
-
-
-
-
+                
+                System.out.println("i did something!");
             //dbEmail = resultSet.getString("Email");
             //dbPassword = resultSet.getString("Password");
 
