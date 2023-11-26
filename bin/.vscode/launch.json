@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Restaurant",
+            "request": "launch",
+            "mainClass": "src.Restaurant",
+            "projectName": "Torino-pizza_db8b020c"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
