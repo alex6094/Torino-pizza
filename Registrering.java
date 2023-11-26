@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
@@ -9,13 +10,15 @@ public class Registrering {
     //Metode til at registrere ny kunde
     public static void registerCustomer(String firstName, String lastName, Date birthday, String phoneNumber, 
                                         String email, String address, String postalCode, String password) {
+        
+        Connection connection = null;
+            
         try {
-            Connection connection = DriverManager.getConnection(URL, "root", "");
+            connection = DriverManager.getConnection(URL, "root", "");
             
             //SQL statement til at indsætte kundedata i 'kunde' tabel
             String SQLStatement = "INSERT INTO `kunde` (`Fornavn`, `Efternavn`, `Foedselsdag`, `Telefon`, `Email`, `Adresse`, `Postnummer`, `Password`)" +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        }
 
         // Using PreparedStatement to prevent SQL injection
         try (PreparedStatement preparedStatement = connection.prepareStatement(SQLStatement)) {
@@ -41,5 +44,17 @@ public class Registrering {
         }
     } catch (Exception e) {
         System.out.println(e);
+    }  finally {
+        // Close the connection in the finally block to ensure it gets closed regardless of exceptions
+        try {
+            
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
+}
+
 }
