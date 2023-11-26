@@ -44,7 +44,7 @@
             "request": "launch",
             "mainClass": "Restaurant",
             "projectName": "Torino-pizza_db8b020c",
-            "vmArgs": "--module-path \"C:\\Users\\ebox\\OneDrive\\Dokumenter\\Java\\javafx-sdk-21.0.1\\lib\";\"path\\to\\Sabina\\lib\";\"path\\to\\Stine\\lib\";\"path\\to\\Alexander\\lib\";\"path\\to\\Mark\\lib\";\"${fileWorkspaceFolder}\\lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path ${workspaceFolder}/javafx/lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
