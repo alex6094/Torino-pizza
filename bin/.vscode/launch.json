@@ -8,8 +8,8 @@
             "type": "java",
             "name": "Restaurant",
             "request": "launch",
-            "mainClass": "src.Restaurant",
-            "projectName": "Torino-pizza_db8b020c"
+            "mainClass": "Restaurant",
+            "projectName": "Torino-pizza_8d71f487"
         },
         {
             "type": "java",
