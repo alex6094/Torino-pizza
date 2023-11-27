@@ -13,6 +13,7 @@ public class Sqltask {
   
     public static void main(String args[]) {
         try {
+            System.setProperty("console.encoding", "ISO-8859-1");
             connection = Ordrer.connectDB();  
             statement = connection.createStatement();
             danishdate = setDanishLocale();
@@ -23,12 +24,12 @@ public class Sqltask {
             text = "1. Formater telefonnr (CONCAT)";
             sqltext = "SELECT Fornavn, Efternavn, CONCAT('+45 ', SUBSTRING(Telefon, 1, 4), ' ', SUBSTRING(Telefon, 5, 8)) AS Telefon FROM kunde LIMIT 10";
             result = sqlexq(sqltext);
-            ShowResult(result, text, sqltext, new String[] {"%-15s"});
+            ShowResult(result, text, sqltext, new String[] {"%-15s"}, null);
 
             text = "2. Order bestil i postnr Glostrup, Århus C, Esbjerg, Skive og Aalborg  (DISTINCT/WHERE)";
             sqltext = "SELECT GROUP_CONCAT(DISTINCT ID SEPARATOR ', ') AS Ordrer, Totalpris, count(DISTINCT ID) AS Antal, Bynavn \nFROM ordrer_view \nWHERE Postnr IN (2600,8000,6700,7800,9000) \nGROUP BY Postnr \nORDER BY Postnr";
             result = sqlexq(sqltext);
-            ShowResult(result, text, sqltext, new String[] {"-30s","-15.2f","-10s","-20s"});
+            ShowResult(result, text, sqltext, new String[] {"-30s","-15.2f","-10s","-20s"}, 3);
 
 
             text = "3. Opret table view (JOIN)";
@@ -54,7 +55,7 @@ public class Sqltask {
             ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-15s","-10d"});
 
             text = "6. Første ordre pr dag (MIN)";
-            sqltext = "SELECT ID, MIN(Oprettet) 'Dag/tid', Fornavn, Efternavn, SUM(Antal) OVER (PARTITION BY ID) , TotalPris AS Pris \nFROM ordrer_view \nGROUP BY SUBSTRING_INDEX(Oprettet, ' ',1) \nORDER BY Oprettet ASC;";
+            sqltext = "SELECT ID, MIN(Oprettet) 'Dag/tid', Fornavn, Efternavn, SUM(Antal) OVER (PARTITION BY ID) AS Antal , TotalPris AS Pris \nFROM ordrer_view \nGROUP BY SUBSTRING_INDEX(Oprettet, ' ',1) \nORDER BY Oprettet ASC;";
             result = sqlexq(sqltext);
             ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-15s","-15s","-10s","-10.2f"});
 
@@ -66,7 +67,7 @@ public class Sqltask {
             text = "8. Liste over ordre den 21. nov. 2023 (Wildcard)";
             sqltext = "SELECT ID, Oprettet, GROUP_CONCAT(PizzaNavn SEPARATOR ', ') AS Pizzaer, Fornavn, Efternavn, TotalPris \nFROM ordrer_view WHERE Oprettet LIKE '2023-11-21%' \nGROUP BY ID \nORDER BY ID ASC;";
             result = sqlexq(sqltext);
-            ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-25s","-15s","-15s","-10.2f"});
+            ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-60s","-15s","-15s","-10.2f"});
 
             text = "9. Top 10 liste over de kunder der har bestilt for mest (SUM)";
             sqltext = "SELECT KundeID, Fornavn, Efternavn, SUM(TotalPris) AS Pris \nFROM ordrer_view GROUP BY PizzaNavn \nORDER BY Pris DESC Limit 10";
