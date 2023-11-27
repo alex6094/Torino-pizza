@@ -10,8 +10,7 @@ public class Mark {
 
     public static void main(String args[]) {
 /*
- Det er så her jeg ville lave min 
- 
+ Dette er ren test, eller død kode. 
  */
 
         try {
