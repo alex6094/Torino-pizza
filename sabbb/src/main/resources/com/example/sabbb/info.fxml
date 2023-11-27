@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.sabbb.Info"
+            prefHeight="400.0" prefWidth="600.0">
+    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Button maxWidth="Infinity" text="Home" HBox.hgrow="ALWAYS"  onMouseClicked="#handleHomeClick">
+            <HBox.margin>
+                <Insets top="50.0" />
+            </HBox.margin>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="BOTTOM" maxWidth="Infinity" text="Order Online" HBox.hgrow="ALWAYS" onMouseClicked="#handleOrderOnlineClick">
+            <HBox.margin>
+                <Insets top="50.0" />
+            </HBox.margin>
+        </Button>
+        <Button maxWidth="Infinity" text="Info" HBox.hgrow="ALWAYS" onMouseClicked="#handleInfoClick">
+            <HBox.margin>
+                <Insets top="50.0" />
+            </HBox.margin>
+        </Button>
+    </HBox>
+
+    <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <Label style="-fx-font-size: 16px;" text="Info" VBox.vgrow="ALWAYS" underline="true"  />
+
+        <Pane minHeight="10.0" VBox.vgrow="NEVER"/>
+        <Label style="-fx-font-size: 16px;" text="Opening hours: 13:00-20:00" VBox.vgrow="ALWAYS" />
+
+        <Pane minHeight="10.0" VBox.vgrow="NEVER"/>
+        <Label style="-fx-font-size: 16px;" text="Holidays: 25Dec-12 Jan. 12-June-17-Jul" VBox.vgrow="ALWAYS" />
+
+        <Pane minHeight="10.0" VBox.vgrow="NEVER"/>
+        <Label style="-fx-font-size: 16px;" text="Address: Somewhere Magical 1B" VBox.vgrow="ALWAYS" />
+
+        <Pane minHeight="10.0" VBox.vgrow="NEVER"/>
+        <Label style="-fx-font-size: 16px;" text="Phone: +1 89573479583" VBox.vgrow="ALWAYS" />
+
+    </VBox>
+
+</AnchorPane>

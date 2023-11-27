@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sabbb.YourOrder">
+
+    <HBox layoutY="-1.0" prefHeight="86.0" prefWidth="600.0" spacing="20" alignment="CENTER" style="-fx-background-color: cyan;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+        <Text onMouseClicked="#handleHomeClick" style="-fx-font-size: 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Home" HBox.hgrow="ALWAYS" />
+        <Text onMouseClicked="#handleInfoClick" style="-fx-font-size: 25;  -fx-cursor: hand;" text="Info" HBox.hgrow="ALWAYS" />
+        <Text onMouseClicked="#handleOrderOnlineClick" style="-fx-font-size: 25; -fx-cursor: hand;" text="Order Online" HBox.hgrow="ALWAYS" />
+    </HBox>
+
+<VBox alignment="CENTER" layoutX="140.0" layoutY="190.0" spacing="10" style="-fx-font-size: 16px;" />
+
+        <HBox alignment="CENTER" spacing="20" />
+
+        <HBox alignment="CENTER" spacing="20" />
+
+        <HBox alignment="CENTER" spacing="20" />
+
+    <VBox fx:id="orderList" alignment="CENTER" layoutX="466.0" layoutY="120.0" spacing="10" />
+     <Label layoutX="466.0" layoutY="98.0" text="Your Order" underline="true" />
+      <Label layoutX="150.0" layoutY="148.0" text="Pizza" />
+   <Label layoutX="150.0" layoutY="173.0" text="Calzone" />
+
+     <HBox alignment="CENTER" layoutX="314.0" layoutY="316.0" spacing="20" />
+      <Label layoutX="414.0" layoutY="358.0" text="Total" />
+    <Label fx:id="totalLabel" layoutX="474.0" layoutY="358.0" text="0$" />
+   <Label layoutX="150.0" layoutY="200.0" text="Drinks" />
+   <Label layoutX="150.0" layoutY="230.0" text="Pasta" />
+   <Label layoutX="150.0" layoutY="258.0" text="Spaghetti" />
+    <Label layoutX="150.0" layoutY="258.0" text="Spaghetti" />
+      <Button layoutX="425.0" layoutY="267.0" minWidth="120" text="Confirm" />
+      <Button layoutX="417.0" layoutY="314.0" minWidth="120" prefHeight="0.0" prefWidth="133.0" text="Cancel" />
+   <Button layoutX="209.0" layoutY="256.0" minWidth="22.0" onAction="#addSpaghetti" prefHeight="0.0" prefWidth="45.0" text="+" />
+   <Button layoutX="209.0" layoutY="228.0" minWidth="22.0" onAction="#addPasta" prefHeight="0.0" prefWidth="45.0" text="+" />
+   <Button layoutX="209.0" layoutY="199.0" minWidth="22.0" onAction="#addDrinks" prefHeight="0.0" prefWidth="45.0" text="+" />
+   <Button layoutX="209.0" layoutY="172.0" minWidth="22.0" onAction="#addCalzone" prefHeight="0.0" prefWidth="45.0" text="+" />
+   <Button layoutX="209.0" layoutY="144.0" minWidth="22.0" onAction="#addPizza" prefHeight="0.0" prefWidth="45.0" text="+" />
+   <Button layoutX="269.0" layoutY="256.0" minWidth="22.0" onAction="#removeSpaghetti" prefHeight="0.0" prefWidth="45.0" text="-" />
+   <Button layoutX="269.0" layoutY="226.0" minWidth="22.0" onAction="#removePasta" prefHeight="0.0" prefWidth="45.0" text="-" />
+   <Button layoutX="269.0" layoutY="198.0" minWidth="22.0" onAction="#removeDrinks" prefHeight="0.0" prefWidth="45.0" text="-" />
+   <Button layoutX="269.0" layoutY="169.0" minWidth="22.0" onAction="#removeCalzone" prefHeight="0.0" prefWidth="45.0" text="-" />
+   <Button layoutX="269.0" layoutY="144.0" minWidth="22.0" onAction="#removePizza" prefHeight="0.0" prefWidth="45.0" text="-" />
+
+</AnchorPane>

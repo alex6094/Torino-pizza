@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sabbb.Contact">
+
+    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Button maxWidth="Infinity" text="Home" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets top="50.0" />
+            </HBox.margin>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="BOTTOM" maxWidth="Infinity" text="Order Online" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets top="50.0" />
+            </HBox.margin>
+        </Button>
+        <Button maxWidth="Infinity" text="Info" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets top="50.0" />
+            </HBox.margin>
+        </Button>
+    </HBox>
+    <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <Label style="-fx-font-size: 16px;" text="Contact" VBox.vgrow="ALWAYS" underline="true"  />
+        <Pane minHeight="10.0" VBox.vgrow="NEVER"/>
+        <Label style="-fx-font-size: 16px;" text="Phone: +1 4395794353" VBox.vgrow="ALWAYS" />
+        <Label style="-fx-font-size: 16px;" text="Business number: +7 43294289" VBox.vgrow="ALWAYS" />
+        <Label style="-fx-font-size: 16px;" text="Email: TorinosPizza@wecouldntaffordadomain.com" VBox.vgrow="ALWAYS" />
+        <Label style="-fx-font-size: 16px;" text="Write a message:" VBox.vgrow="ALWAYS" />
+
+        <TextField promptText="Enter your message" prefWidth="300.0" prefHeight="100.0" maxWidth="300.0"/>
+
+        <Button text="Send"  maxWidth="200.0"/>
+    </VBox>
+
+</AnchorPane>
