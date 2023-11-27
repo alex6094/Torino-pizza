@@ -76,7 +76,7 @@ public class Sqltask {
 
 
             text = "10. Flest ordre pr time pr dag, over 500kr total (HAVING)";
-            sqltext = "SELECT SUBSTRING_INDEX(Oprettet, ' ',1) AS Dag, SUBSTRING_INDEX(SUBSTRING_INDEX(Oprettet, ' ',-1),':',1) AS time, SUM(Antal) AS Antal, SUM(TotalPris) AS Pris \nFROM ordrer_view \nGROUP BY SUBSTRING_INDEX(Oprettet, ':',1) \nHAVING Pris > 500 \nORDER BY Dag ASC, Pris DESC";
+            sqltext = "SELECT SUBSTRING_INDEX(Oprettet, ' ',1) AS Dag, SUBSTRING_INDEX(SUBSTRING_INDEX(Oprettet, ' ',-1),':',1) AS time, SUM(Antal) AS Antal, SUM(Pris) AS Pris \nFROM ordrer_view \nGROUP BY SUBSTRING_INDEX(Oprettet, ':',1) \nHAVING Pris > 500 \nORDER BY Dag ASC, Pris DESC";
             result = sqlexq(sqltext);
             ShowResult(result, text, sqltext, new String[] {"-15s","-10s","-8s","10.2f"}, 1);
 
