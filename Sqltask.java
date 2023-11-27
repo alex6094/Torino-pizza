@@ -82,9 +82,7 @@ public class Sqltask {
 
 
         } catch (Exception e) {
-
             System.out.println(e);
-             System.out.println("error");
         }
 
 }

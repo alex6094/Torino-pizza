@@ -17,7 +17,7 @@
             "request": "launch",
             "mainClass": "Restaurant",
             "projectName": "Torino-pizza_eeef01dd",
-            "vmArgs": "--module-path ${workspaceFolder}/javafx/lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"${workspaceFolder}/javafx/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -59,7 +59,7 @@
             "request": "launch",
             "mainClass": "Restaurant",
             "projectName": "Torino-pizza_db8b020c",
-            "vmArgs": "--module-path ${workspaceFolder}/javafx/lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"${workspaceFolder}/javafx/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
