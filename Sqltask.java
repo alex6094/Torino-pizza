@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -15,16 +16,68 @@ public class Sqltask {
             connection = Ordrer.connectDB();  
             statement = connection.createStatement();
             danishdate = setDanishLocale();
+            ResultSet result;
+            String sqltext ;
+            String text;
 
-            //se alle kundeordrer
-            ResultSet result = sqlexq("SELECT * FROM ordrer_view");
-            showKunder(result, "ALLE KUNDEORDRE");
+            text = "1. Formater telefonnr (CONCAT)";
+            sqltext = "SELECT Fornavn, Efternavn, CONCAT('+45 ', SUBSTRING(Telefon, 1, 4), ' ', SUBSTRING(Telefon, 5, 8)) AS Telefon FROM kunde LIMIT 10";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"%-15s"});
 
-            
-            //se specific kundeordre
-            int KundeID = 78;
-            result  = statement.executeQuery("SELECT * FROM ordrer_view WHERE KundeID="+KundeID);        
-            showKunder(result, "KUNDEORDRE");
+            text = "2. Order bestil i postnr Glostrup, Århus C, Esbjerg, Skive og Aalborg  (DISTINCT/WHERE)";
+            sqltext = "SELECT GROUP_CONCAT(DISTINCT ID SEPARATOR ', ') AS Ordrer, Totalpris, count(DISTINCT ID) AS Antal, Bynavn \nFROM ordrer_view \nWHERE Postnr IN (2600,8000,6700,7800,9000) \nGROUP BY Postnr \nORDER BY Postnr";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-30s","-15.2f","-10s","-20s"});
+
+
+            text = "3. Opret table view (JOIN)";
+            sqltext = "#CREATE VIEW Ordrer_view AS\n" + 
+                    "SELECT Ordrer.ID, Ordrer.Oprettet, Ordrer.Betalt, Ordrer.Faerdig, PizzaMenu_view.*, Antal, Antal*StkPris AS Pris, Ordrer.TotalPris, Kunde_view.*\n" +
+                    "FROM ordrer\n" +
+                    "LEFT JOIN pizzaordrer ON Ordrer.ID = pizzaordrer.OrdrerID\n" + 
+                    "LEFT JOIN PizzaMenu_view ON pizzaordrer.PizzaID = PizzaMenu_view.PizzaID\n" + 
+                    "LEFT JOIN Kunde_view ON ordrer.KundeID = Kunde_view.KundeID LIMIT 10";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-8s","-10s","-10s","-25s","-50s","-10.2f","-10d","-10.2f","-15.2f","-10s","-12s","-12s","-12s","-20s","-10s","-20s"});
+
+
+            text = "4. Antal pizzaer bestilt pr pizzatype (ORDER)";
+            sqltext = "SELECT PizzaID, PizzaNavn, COUNT(PizzaID) AS Antal \nFROM ordrer_view \nGROUP BY PizzaID \nORDER BY Antal DESC";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-10d"});
+
+
+            text = "5. Antal pizzaer bestilt pr pizzatype pr dag (GROUP BY)";
+            sqltext = "SELECT PizzaID, PizzaNavn, SUBSTRING_INDEX(Oprettet, ' ',1) AS Dag, COUNT(PizzaID) AS Antal \nFROM ordrer_view \nGROUP BY Dag, PizzaID \nORDER BY Dag ASC, Antal DESC";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-15s","-10d"});
+
+            text = "6. Første ordre pr dag (MIN)";
+            sqltext = "SELECT ID, MIN(Oprettet) 'Dag/tid', Fornavn, Efternavn, SUM(Antal) OVER (PARTITION BY ID) , TotalPris AS Pris \nFROM ordrer_view \nGROUP BY SUBSTRING_INDEX(Oprettet, ' ',1) \nORDER BY Oprettet ASC;";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-15s","-15s","-10s","-10.2f"});
+
+            text = "7. Højeste ordrer pr dag (MAX)";
+            sqltext = "SELECT ID, SUBSTRING_INDEX(Oprettet, ' ',1) AS Dag, Fornavn, Efternavn, MAX(TotalPris) AS Pris \nFROM ordrer_view \nGROUP BY Dag \nORDER BY Dag ASC";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-15s","-15s","-10.2f"});
+
+            text = "8. Liste over ordre den 21. nov. 2023 (Wildcard)";
+            sqltext = "SELECT ID, Oprettet, GROUP_CONCAT(PizzaNavn SEPARATOR ', ') AS Pizzaer, Fornavn, Efternavn, TotalPris \nFROM ordrer_view WHERE Oprettet LIKE '2023-11-21%' \nGROUP BY ID \nORDER BY ID ASC;";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-10d","-25s","-25s","-15s","-15s","-10.2f"});
+
+            text = "9. Top 10 liste over de kunder der har bestilt for mest (SUM)";
+            sqltext = "SELECT KundeID, Fornavn, Efternavn, SUM(TotalPris) AS Pris \nFROM ordrer_view GROUP BY PizzaNavn \nORDER BY Pris DESC Limit 10";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-10d","-15s","-15s","-10.2f"});
+
+
+            text = "10. Flest ordre pr time pr dag, over 500kr total (HAVING)";
+            sqltext = "SELECT SUBSTRING_INDEX(Oprettet, ' ',1) AS Dag, SUBSTRING_INDEX(SUBSTRING_INDEX(Oprettet, ' ',-1),':',1) AS time, SUM(Antal) AS Antal, SUM(TotalPris) AS Pris \nFROM ordrer_view \nGROUP BY SUBSTRING_INDEX(Oprettet, ':',1) \nHAVING Pris > 500 \nORDER BY Dag ASC, Pris DESC";
+            result = sqlexq(sqltext);
+            ShowResult(result, text, sqltext, new String[] {"-15s","-10s","-8s","10.2f"});
 
 
         } catch (Exception e) {
@@ -38,43 +91,58 @@ public class Sqltask {
 
 
 
-      public static ResultSet sqlexq(String sqlstring) throws SQLException {
-            return statement.executeQuery(sqlstring);
-      }  
+    public static ResultSet sqlexq(String sqlstring) throws SQLException {
+        return statement.executeQuery(sqlstring);
+    }  
 
 
-      public static SimpleDateFormat setDanishLocale() {
+    public static SimpleDateFormat setDanishLocale() {
         Locale danishLocale = new Locale.Builder().setLanguage("da").setRegion("DK").build();
         return new SimpleDateFormat("dd/MM/yyyy HH:mm", danishLocale);
-      }
+    }
 
 
+    public static void ShowResult(ResultSet result, String text, String sql, String[] formats) throws SQLException {
 
-      public static void showKunder(ResultSet result, String header) throws SQLException {
-            System.out.println("\n\n************************ "+header+" ************************\n");
-            System.out.printf(
-                "%-8s%-20s%-30s%-50s%15s%10s%15s\033[1m%15s\033[0m%n",
-            "ID", "Oprettet", "Pizza", "Beskrivelse", "Pris stk.", "Antal", "Pris", "Pris Total"
-            );
-            int id = 0;
+        System.out.println("\n\u001B[91m"+text+ "\u001B[0m\n--\n" + //
+                "\u001B[94m"+sql+"\u001B[0m\n--\n"); 
 
-            //udskriver tabeldata
-            while (result.next()) {
-                
-                int c1 = result.getInt("ID");
-                String c2 = danishdate.format(result.getTimestamp("Oprettet"));
-                String c3 = result.getString("PizzaNavn");
-                String c4 = result.getString("Toppings");
-                double c5 = result.getDouble("StkPris");
-                int c6 = result.getInt("Antal");
-                double c7 = result.getDouble("Pris");
-                double c8 = result.getDouble("TotalPris");
 
-                if(id != c1) System.out.println("--");
-                id = c1;
-                System.out.printf("%-8d%-20s%-30s%-50s%15.2f%10s%15.2f\033[1m%15.2f\033[0m%n", c1, c2, c3, c4, c5, c6, c7, c8);
-            }
-      }
+        //udskiver tabelhovedet
+        ResultSetMetaData metaData = result.getMetaData();
+        int columnCount = metaData.getColumnCount();
+        for (int i=1; i<=columnCount; i++) {
+            String f = rc(getFormat(formats, i));
+            System.out.printf("\u001B[1m"+f+"\u001B[0m",metaData.getColumnName(i));
+        }   
+        System.out.println(); 
+
+        //udskriver tabeldata
+        while (result.next()) {
+            for (int i=1; i<=columnCount; i++) {
+                System.out.printf(getFormat(formats, i),result.getObject(i));
+            }   
+            System.out.println(); 
+        }    
+    } 
+
+    private static String getFormat(String[] f, int i) {
+        int fl = f.length;
+        if(fl>1) {
+             if(fl>=i) {
+                return "%"+f[i-1]; 
+             } else {
+                return "%"+f[fl-1]; 
+             }           
+        } else {
+            return f[0];
+        }
+
+    }
+
+    private static String rc(String text) {
+        return text.replace(".2f","s").replace("d","s");
+    }
 
 }
 
