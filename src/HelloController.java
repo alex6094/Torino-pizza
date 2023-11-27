@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -15,7 +16,7 @@ public class HelloController {
     @FXML
     private TextField EmailField;
     @FXML
-    private TextField PasswordField;
+    private PasswordField PasswordField;
 
     @FXML
     private void handleLogin(ActionEvent event) {
