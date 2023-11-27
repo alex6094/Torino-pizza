@@ -6,17 +6,18 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Restaurant",
+            "name": "Sqltask",
             "request": "launch",
-            "mainClass": "Restaurant",
+            "mainClass": "Sqltask",
             "projectName": "Torino-pizza_eeef01dd"
         },
         {
             "type": "java",
             "name": "Restaurant",
             "request": "launch",
-            "mainClass": "src.Restaurant",
-            "projectName": "Torino-pizza_eeef01dd"
+            "mainClass": "Restaurant",
+            "projectName": "Torino-pizza_eeef01dd",
+            "vmArgs": "--module-path ${workspaceFolder}/javafx/lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",

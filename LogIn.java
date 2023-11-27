@@ -3,16 +3,29 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
 public class LogIn {
 
-    private static String Email = "john.doe@email.com";
-    private static String Password = "password123";
+    @FXML
+    private static TextField EmailField;
+    private static String Email;
+    @FXML
+    private static TextField PasswordField;
+    private static String Password;
     public static boolean LoggedIn = false;
 
 
 public static void main(String args[]) {
     GetDataBaseValues();
 }
+
+public static void UpdateEmailAndPassword(){
+     Email = EmailField.getText();
+    Password = PasswordField.getText();
+}
+
 
 
     static String URL = "jdbc:mysql://localhost:3306/pizza";
