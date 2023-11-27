@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -11,9 +13,14 @@ import java.io.IOException;
 public class HelloController {
 
     @FXML
+    private TextField EmailField;
+    @FXML
+    private TextField PasswordField;
+
+    @FXML
     private void handleLogin(ActionEvent event) {
         //changeScene("your-order.fxml", event);
-        LogIn.UpdateEmailAndPassword();
+        LogIn.UpdateEmailAndPassword(EmailField.getText(), PasswordField.getText());
         LogIn.GetDataBaseValues();
     }
 

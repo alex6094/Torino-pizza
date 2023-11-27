@@ -8,11 +8,9 @@ import javafx.scene.control.TextField;
 
 public class LogIn {
 
-    @FXML
-    private static TextField EmailField;
+   
     private static String Email;
-    @FXML
-    private static TextField PasswordField;
+    
     private static String Password;
     public static boolean LoggedIn = false;
 
@@ -21,9 +19,9 @@ public static void main(String args[]) {
     GetDataBaseValues();
 }
 
-public static void UpdateEmailAndPassword(){
-     Email = EmailField.getText();
-    Password = PasswordField.getText();
+public static void UpdateEmailAndPassword(String _Email, String _Password){
+    Email = _Email;
+    Password = _Password;
 }
 
 
