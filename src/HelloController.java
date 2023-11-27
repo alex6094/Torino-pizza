@@ -13,6 +13,8 @@ public class HelloController {
     @FXML
     private void handleLogin(ActionEvent event) {
         //changeScene("your-order.fxml", event);
+        LogIn.UpdateEmailAndPassword();
+        LogIn.GetDataBaseValues();
     }
 
     @FXML
