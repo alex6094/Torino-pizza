@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f9cfc5f-a05c-4860-bfb0-4c7feeea6423" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/.idea/Torino-pizza.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/Mark.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/mysql-connector-java-8.0.28.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/pizza (1).sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Torino-pizza/pizza_new.sql" beforeDir="false" />
-    </list>
+    <list default="true" id="4f9cfc5f-a05c-4860-bfb0-4c7feeea6423" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +35,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/mark-/Downloads/test",
+    "last_opened_file_path": "C:/Users/Sab/Downloads/New folder",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,6 +76,11 @@
       <workItem from="1701076490790" duration="106000" />
       <workItem from="1701076662986" duration="65000" />
       <workItem from="1701079320793" duration="1246000" />
+      <workItem from="1701095422420" duration="26000" />
+      <workItem from="1701095469897" duration="9000" />
+      <workItem from="1701095501253" duration="24000" />
+      <workItem from="1701109486056" duration="1000" />
+      <workItem from="1701109549827" duration="135000" />
     </task>
     <servers />
   </component>
